@@ -1,0 +1,151 @@
+# ============================================================================
+# BRLF-Sanket Docker Compose  v5.0
+# ============================================================================
+# Usage:
+#   Production:  docker compose up -d
+#   Development: docker compose --profile dev up
+#
+# Configuration:
+#   Copy .env.example → .env and customise values
+# ============================================================================
+
+services:
+
+  # ── Backend (production) ──────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dockerfiles/Dockerfile
+    container_name: brlf-backend
+    ports:
+      - "8000:8000"
+
+    volumes:
+      # Pipeline data
+      - ./data/uploads:/app/uploads
+      - ./data/outputs:/app/outputs
+      - ./data/backups:/app/backups
+      - ./data/logs:/app/logs
+      # Admin file routing
+      - ./data/inbox:/app/data/inbox
+      - ./data/verified:/app/data/verified
+      - ./data/unverified:/app/data/unverified
+      - ./data/mapping:/app/data/mapping
+      # Gender library JSONs
+      - ./data/gender_intelligence:/app/gender_intelligence_data
+
+    environment:
+      - PYTHONUNBUFFERED=1
+      - WEB_CONCURRENCY=${WEB_CONCURRENCY:-2}
+
+      # CORS — comma-separated allowed origins
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost:3000,http://localhost:8000}
+
+      # Upload size limit
+      - MAX_UPLOAD_BYTES=${MAX_UPLOAD_BYTES:-104857600}
+
+      # Directory paths
+      - UPLOADS_DIR=/app/uploads
+      - OUTPUTS_DIR=/app/outputs
+      - BACKUPS_DIR=/app/backups
+      - LOGS_DIR=/app/logs
+      - INBOX_DIR=/app/data/inbox
+      - VERIFIED_DIR=/app/data/verified
+      - UNVERIFIED_DIR=/app/data/unverified
+      - GENDER_LIB_DIR=/app/gender_intelligence_data
+
+      # Column name config — change to match your Excel headers
+      - UNIQUE_KEY_COL=${UNIQUE_KEY_COL:-meta-instanceID}
+      - FARMER_NAME_COL=${FARMER_NAME_COL:-farmer_name}
+      - FATHER_SPOUSE_COL=${FATHER_SPOUSE_COL:-father_spouse_name}
+      - SUBMISSION_DATE_COL=${SUBMISSION_DATE_COL:-SubmissionDate}
+      - SURVEY_DATE_COL=${SURVEY_DATE_COL:-date_of_survey}
+
+      # Security & Auth
+      - BRLF_API_KEY=${BRLF_API_KEY:-}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '2.0'
+        reservations:
+          memory: 512M
+    networks:
+      - brlf-network
+
+  # ── Backend (dev — hot reload) ──────────────────────────────────────────
+  backend-dev:
+    profiles: [ "dev" ]
+    build:
+      context: ./backend
+      dockerfile: dockerfiles/Dockerfile.dev
+    container_name: brlf-backend-dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./data/uploads:/app/uploads
+      - ./data/outputs:/app/outputs
+      - ./data/backups:/app/backups
+      - ./data/logs:/app/logs
+      - ./data/inbox:/app/data/inbox
+      - ./data/verified:/app/data/verified
+      - ./data/unverified:/app/data/unverified
+      - ./data/mapping:/app/data/mapping
+      - ./data/gender_intelligence:/app/gender_intelligence_data
+    environment:
+      - PYTHONUNBUFFERED=1
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost:3000,http://localhost:8000}
+      - UPLOADS_DIR=/app/uploads
+      - OUTPUTS_DIR=/app/outputs
+      - BACKUPS_DIR=/app/backups
+      - LOGS_DIR=/app/logs
+      - INBOX_DIR=/app/data/inbox
+      - VERIFIED_DIR=/app/data/verified
+      - UNVERIFIED_DIR=/app/data/unverified
+      - GENDER_LIB_DIR=/app/gender_intelligence_data
+      - BRLF_API_KEY=${BRLF_API_KEY:-}
+      - LOG_LEVEL=${LOG_LEVEL:-DEBUG}
+    restart: "no"
+    networks:
+      - brlf-network
+
+  # ── Frontend ────────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: brlf-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:3000/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '1.0'
+    networks:
+      - brlf-network
+
+networks:
+  brlf-network:
+    driver: bridge

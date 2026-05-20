@@ -1,0 +1,131 @@
+# ============================================================================
+
+#   - Dockerfiles moved to dockerfiles/ subfolder
+#   - Added data/inbox, data/verified, data/unverified volumes
+#   - Added gender_intelligence volume for library JSON files
+#   - Added INBOX_DIR, VERIFIED_DIR, UNVERIFIED_DIR, GENDER_LIB_DIR env vars
+#   - Healthcheck endpoint unchanged (/health)
+#   - dev profile added — use: docker compose --profile dev up
+#   - frontend service added
+# ============================================================================
+
+services:
+
+  # ── Backend (production) ───────────────────────────────────────────────────
+  backend:
+    build:
+      context: ..
+      dockerfile: dockerfiles/Dockerfile
+    container_name: brlf-backend
+    ports:
+      - "8000:8000"
+
+    volumes:
+      # Pipeline data
+      - ../data/uploads:/app/uploads
+      - ../data/outputs:/app/outputs
+      - ../data/backups:/app/backups
+      - ../data/logs:/app/logs
+      - ../data/mapping:/app/data/mapping
+      # Admin file routing
+      - ../data/inbox:/app/data/inbox
+      - ../data/verified:/app/data/verified
+      - ../data/unverified:/app/data/unverified
+
+      # Gender library JSONs (shared between pipeline and admin rebuild)
+      - ../gender_intelligence:/app/gender_intelligence
+
+    environment:
+      - PYTHONUNBUFFERED=1
+      - WEB_CONCURRENCY=2
+
+      # Directory paths
+      - UPLOADS_DIR=/app/uploads
+      - OUTPUTS_DIR=/app/outputs
+      - BACKUPS_DIR=/app/backups
+      - LOGS_DIR=/app/logs
+      - INBOX_DIR=/app/data/inbox
+      - VERIFIED_DIR=/app/data/verified
+      - UNVERIFIED_DIR=/app/data/unverified
+      - GENDER_LIB_DIR=/app/gender_intelligence
+
+      # Column name config — change to match your Excel headers
+      - UNIQUE_KEY_COL=meta-instanceID
+      - FARMER_NAME_COL=farmer_name
+      - FATHER_SPOUSE_COL=father_spouse_name
+      - SUBMISSION_DATE_COL=SubmissionDate
+      - SURVEY_DATE_COL=date_of_survey
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout:  10s
+      retries:  3
+      start_period: 15s
+
+    restart: unless-stopped
+    networks:
+      - brlf-network
+
+
+  # ── Backend (dev — hot reload) ────────────────────────────────────────────
+  backend-dev:
+    profiles: ["dev"]
+    build:
+      context: ..
+      dockerfile: dockerfiles/Dockerfile.dev
+    container_name: brlf-backend-dev
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount source code so changes hot-reload without rebuild
+      - ..:/app
+      # Keep data folders on host for easy inspection
+      - ../data/uploads:/app/uploads
+      - ../data/outputs:/app/outputs
+      - ../data/backups:/app/backups
+      - ../data/logs:/app/logs
+      - ../data/inbox:/app/data/inbox
+      - ../data/verified:/app/data/verified
+      - ../data/unverified:/app/data/unverified
+      - ../data/mapping:/app/data/mapping
+      - ../gender_intelligence:/app/gender_intelligence
+      
+    environment:
+      - PYTHONUNBUFFERED=1
+      - UPLOADS_DIR=/app/uploads
+      - OUTPUTS_DIR=/app/outputs
+      - BACKUPS_DIR=/app/backups
+      - LOGS_DIR=/app/logs
+      - INBOX_DIR=/app/data/inbox
+      - VERIFIED_DIR=/app/data/verified
+      - UNVERIFIED_DIR=/app/data/unverified
+      - GENDER_LIB_DIR=/app/gender_intelligence
+    restart: "no"
+    networks:
+      - brlf-network
+
+
+  # ── Frontend ───────────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ../../frontend
+      dockerfile: Dockerfile
+    container_name: brlf-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      # Dev: http://localhost:8000
+      # Prod (Docker network): http://brlf-backend:8000
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - brlf-network
+
+
+networks:
+  brlf-network:
+    driver: bridge

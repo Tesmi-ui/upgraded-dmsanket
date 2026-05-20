@@ -1,0 +1,91 @@
+/* index.css - Global Styles for DMS Data Migration System */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Selection Styling */
+::selection {
+  background: rgba(16, 185, 129, 0.3);
+  color: #f8fafc;
+}
+
+/* Focus Styles for Accessibility */
+*:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+/* Prevent text selection on UI elements */
+button, .stage-nav-item, .system-option, .download-card {
+  user-select: none;
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  transition: all 150ms ease;
+}
+
+/* Loading state for images */
+img {
+  background: #1e293b;
+}
+
+/* Code font stack */
+code, pre {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Print styles */
+@media print {
+  .header, .footer, .stage-nav {
+    display: none;
+  }
+  
+  .card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #334155;
+  }
+}

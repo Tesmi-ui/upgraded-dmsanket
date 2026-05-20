@@ -1,0 +1,26 @@
+# ============================================================================
+# BRLF Backend Dependencies (unified)
+# ============================================================================
+
+# Core Framework
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+gunicorn==22.0.0
+pydantic==2.7.1
+
+# File Handling
+python-multipart==0.0.9
+aiofiles==23.2.1
+
+# Data Processing
+pandas==2.2.2
+numpy==1.26.4
+openpyxl==3.1.2
+xlsxwriter==3.1.9
+python-dateutil==2.8.2
+
+# Utilities
+python-dotenv==1.0.0
+
+# Security
+slowapi==0.1.9

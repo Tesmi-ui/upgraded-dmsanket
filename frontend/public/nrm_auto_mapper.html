@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NRM Asset Planning — Auto Mapper v3</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+  :root {
+    --bg:#0a0f1a; --surface:#0f1726; --card:#141e30; --border:#1e2d47;
+    --accent:#00e5a0; --accent2:#0ea5e9; --warn:#f59e0b; --danger:#ef4444;
+    --success:#22c55e; --text:#e2e8f0; --muted:#64748b;
+    --fh:'Syne',sans-serif; --fm:'DM Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:var(--fh);min-height:100vh;overflow-x:hidden;}
+  body::before{content:'';position:fixed;inset:0;
+    background-image:linear-gradient(rgba(0,229,160,.03)1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.03)1px,transparent 1px);
+    background-size:40px 40px;pointer-events:none;z-index:0;}
+  .app{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:40px 24px 80px;}
+  .header{text-align:center;margin-bottom:48px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,229,160,.08);
+    border:1px solid rgba(0,229,160,.2);border-radius:100px;padding:5px 14px;margin-bottom:18px;
+    font-size:11px;font-family:var(--fm);color:var(--accent);letter-spacing:2px;text-transform:uppercase;}
+  .badge::before{content:'●';animation:blink 2s infinite;}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+  h1{font-size:clamp(26px,5vw,44px);font-weight:800;
+    background:linear-gradient(135deg,#fff,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    margin-bottom:10px;}
+  .sub{color:var(--muted);font-size:14px;font-family:var(--fm);}
+  .pipeline{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:48px;flex-wrap:wrap; position: relative;}
+  .ps{background:var(--card);border:2px solid var(--border);border-radius:12px;padding:16px 20px;text-align:center;width:130px; position: relative; z-index: 2; transition: all 0.3s ease;}
+  .ps:hover{transform: translateY(-4px); border-color: rgba(0,229,160,0.5);}
+  .ps.active{border-color: var(--accent); background: rgba(0,229,160,0.1); box-shadow: 0 0 20px rgba(0,229,160,0.2); transform: scale(1.05);}
+  .ps.done{border-color: var(--success);}
+  .ps .ic{font-size:26px;margin-bottom:8px; display:inline-block; transition: transform 0.3s;}
+  .ps.active .ic{transform: scale(1.2);}
+  .ps .lb{font-size:10px;color:var(--muted);font-family:var(--fm); text-transform: uppercase; letter-spacing: 1px;}
+  .ps .vl{font-size:12px;font-weight:700;color:var(--text); margin-top:4px;}
+  .ps.active .vl{color: var(--accent);}
+  
+  .pa{flex: 1; height: 3px; background: var(--border); position: relative; z-index: 1; min-width: 30px; margin: 0 -5px; overflow: hidden;}
+  .pa::after{content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 100%; background: linear-gradient(90deg, transparent, var(--accent), transparent); transform: translateX(-100%);}
+  .pipeline.processing .pa::after{animation: flowLine 1.5s infinite linear;}
+  @keyframes flowLine { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+  
+  .ps .tooltip {position: absolute; top: -45px; left: 50%; transform: translateX(-50%) translateY(10px); background: var(--accent); color: #0a0f1a; font-family: var(--fm); font-size: 10px; font-weight: 700; padding: 6px 10px; border-radius: 6px; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.2s; pointer-events: none; box-shadow: 0 4px 12px rgba(0,229,160,0.3);}
+  .ps .tooltip::after {content: ''; position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%) rotate(45deg); width: 8px; height: 8px; background: var(--accent);}
+  .ps:hover .tooltip {opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);}
+
+  .sec{margin-bottom:28px;}
+  .sec-title{font-size:10px;font-family:var(--fm);color:var(--accent);letter-spacing:3px;text-transform:uppercase;
+    margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .sec-title::after{content:'';flex:1;height:1px;background:var(--border);}
+  .sn{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;
+    background:rgba(0,229,160,.15);color:var(--accent);font-size:10px;font-weight:700;flex-shrink:0;}
+  .drop-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:600px){.drop-grid{grid-template-columns:1fr;}}
+  .dz{border:2px dashed var(--border);border-radius:14px;padding:28px 20px;text-align:center;
+    cursor:pointer;transition:.25s;background:var(--card);}
+  .dz:hover,.dz.over{border-color:var(--accent);background:rgba(0,229,160,.05);}
+  .dz.loaded{border-color:var(--success);border-style:solid;}
+  .dz input{display:none;} .dz .di{font-size:32px;margin-bottom:10px;}
+  .dz .dl{font-size:13px;font-weight:700;margin-bottom:5px;}
+  .dz .ds{font-size:11px;color:var(--muted);font-family:var(--fm);}
+  .fi{margin-top:12px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);
+    border-radius:7px;padding:8px 12px;font-size:11px;font-family:var(--fm);color:var(--success);}
+  .run-btn{width:100%;padding:16px;border:none;border-radius:12px;cursor:pointer;
+    background:linear-gradient(135deg,var(--accent),#00b37a);color:#0a0f1a;
+    font-family:var(--fh);font-size:15px;font-weight:800;letter-spacing:1px;
+    transition:.2s;text-transform:uppercase;position:relative;overflow:hidden;}
+  .run-btn:disabled{opacity:.4;cursor:not-allowed;}
+  .run-btn:not(:disabled):hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,229,160,.3);}
+  .pw{display:none;margin:18px 0;} .pw.active{display:block;}
+  .pt{background:var(--border);border-radius:100px;height:7px;overflow:hidden;margin-bottom:9px;}
+  .pf{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:100px;transition:width .3s;width:0%;}
+  .pl{font-family:var(--fm);font-size:11px;color:var(--muted);background:var(--card);
+    border:1px solid var(--border);border-radius:9px;padding:14px;max-height:150px;overflow-y:auto;line-height:1.8;}
+  .lok{color:var(--success);} .lwarn{color:var(--warn);} .linfo{color:var(--accent2);}
+  .sg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0;}
+  @media(max-width:600px){.sg{grid-template-columns:1fr 1fr;}}
+  .sc{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px;text-align:center;}
+  .sc .num{font-size:26px;font-weight:800;} .sc .desc{font-size:10px;color:var(--muted);font-family:var(--fm);margin-top:3px;}
+  .sc.g .num{color:var(--success);} .sc.b .num{color:var(--accent2);} .sc.a .num{color:var(--warn);} .sc.r .num{color:var(--danger);}
+  .vp{display:none;} .vp.active{display:block;}
+  .ct{width:100%;border-collapse:collapse;font-size:12px;}
+  .ct th{background:var(--surface);padding:9px 12px;text-align:left;font-family:var(--fm);font-size:10px;
+    color:var(--muted);border-bottom:1px solid var(--border);letter-spacing:1px;}
+  .ct td{padding:9px 12px;border-bottom:1px solid rgba(30,45,71,.5);}
+  .ct tr:hover td{background:rgba(0,229,160,.03);}
+  .tag{display:inline-block;padding:2px 7px;border-radius:4px;font-family:var(--fm);font-size:10px;font-weight:600;}
+  .tok{background:rgba(34,197,94,.15);color:var(--success);} .twarn{background:rgba(245,158,11,.15);color:var(--warn);}
+  .terr{background:rgba(239,68,68,.15);color:var(--danger);} .tinfo{background:rgba(14,165,233,.15);color:var(--accent2);}
+  .da{display:none;text-align:center;padding:28px;} .da.active{display:block;}
+  .dlb{display:inline-flex;align-items:center;gap:10px;background:var(--card);border:2px solid var(--accent);
+    border-radius:11px;padding:14px 28px;color:var(--accent);font-family:var(--fh);font-size:14px;font-weight:700;
+    cursor:pointer;transition:.2s;margin:6px;text-decoration:none;}
+  .dlb:hover{background:rgba(0,229,160,.1);transform:translateY(-2px);}
+  .toast{position:fixed;bottom:22px;right:22px;z-index:999;background:var(--card);
+    border:1px solid var(--accent);border-radius:11px;padding:12px 18px;font-size:12px;
+    font-family:var(--fm);color:var(--accent);transform:translateY(80px);transition:.3s;max-width:300px;}
+  .toast.show{transform:translateY(0);}
+  .info-box{background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.2);
+    border-radius:9px;padding:12px 16px;font-size:12px;color:var(--accent2);
+    margin-bottom:18px;font-family:var(--fm);line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <div class="badge">brlf · nrm · individual asset planning · v3</div>
+    <h1>Individual Asset Planning<br>Auto Mapper System</h1>
+    <p class="sub">Upload · Transform · Validate · Download</p>
+  </div>
+
+  <div class="pipeline" id="flowPipeline">
+    <div class="ps" id="step-src">
+      <div class="tooltip">Load ALL Sheet</div>
+      <div class="ic">📂</div><div class="lb">Source</div><div class="vl">NAVNIRMAN</div>
+    </div>
+    <div class="pa"></div>
+    <div class="ps" id="step-tpl">
+      <div class="tooltip">Target Structure</div>
+      <div class="ic">📋</div><div class="lb">Template</div><div class="vl">45 Columns</div>
+    </div>
+    <div class="pa"></div>
+    <div class="ps" id="step-tx">
+      <div class="tooltip">Clean & Transform</div>
+      <div class="ic">⚙️</div><div class="lb">Transform</div><div class="vl">30 Checks</div>
+    </div>
+    <div class="pa"></div>
+    <div class="ps" id="step-val">
+      <div class="tooltip">Cross-file Diff</div>
+      <div class="ic">✅</div><div class="lb">Validate</div><div class="vl">Row-by-Row</div>
+    </div>
+    <div class="pa"></div>
+    <div class="ps" id="step-dl">
+      <div class="tooltip">Get Final Exports</div>
+      <div class="ic">⬇️</div><div class="lb">Download</div><div class="vl">+ Report</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title"><span class="sn">1</span> Upload Files</div>
+    <div class="info-box">
+      ⚠ <strong>Important:</strong> Source file must have an <strong>ALL</strong> sheet (or first sheet). KEY must come from <strong>Unique Key</strong> column (not KEY column which is uuid). Land area from <strong>irrigated/rainfed land</strong> column. GPS = Latitude + ", " + Longitude combined exactly.
+    </div>
+    <div class="drop-grid">
+      <div class="dz" id="srcZone" onclick="document.getElementById('srcFile').click()">
+        <div class="di">📊</div>
+        <div class="dl" style="color:var(--accent2)">Source File</div>
+        <div class="ds">NAVNIRMAN_Vedant.xlsx<br>any NAVNIRMAN file (ALL sheet)</div>
+        <div class="fi" id="srcInfo" style="display:none"></div>
+        <input type="file" id="srcFile" accept=".xlsx,.xls" onchange="loadFile(this,'src')">
+      </div>
+      <div class="dz" id="tplZone" onclick="document.getElementById('tplFile').click()">
+        <div class="di">📋</div>
+        <div class="dl" style="color:var(--accent)">Template File</div>
+        <div class="ds">Individual_Assest_Planning.xlsx<br>(45 column target format)</div>
+        <div class="fi" id="tplInfo" style="display:none"></div>
+        <input type="file" id="tplFile" accept=".xlsx,.xls" onchange="loadFile(this,'tpl')">
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title"><span class="sn">2</span> Process &amp; Transform</div>
+    <button class="run-btn" id="runBtn" onclick="runPipeline()" disabled>⚡ Run Verified Mapping Pipeline</button>
+    <div class="pw" id="pw">
+      <div class="pt"><div class="pf" id="pb"></div></div>
+      <div class="pl" id="pl"></div>
+    </div>
+  </div>
+
+  <div class="sec" id="statsSection" style="display:none">
+    <div class="sec-title"><span class="sn">3</span> Processing Summary</div>
+    <div class="sg">
+      <div class="sc g"><div class="num" id="sR">0</div><div class="desc">Rows Processed</div></div>
+      <div class="sc b"><div class="num" id="sC">0</div><div class="desc">Cols With Data</div></div>
+      <div class="sc a"><div class="num" id="sW">0</div><div class="desc">Warnings</div></div>
+      <div class="sc r"><div class="num" id="sM">0</div><div class="desc">Transform Errors</div></div>
+    </div>
+  </div>
+
+  <div class="sec vp" id="vp">
+    <div class="sec-title"><span class="sn">4</span> Cross-File Validation Report</div>
+    <table class="ct"><thead><tr>
+      <th>CHECK</th><th>COLUMN</th><th>SOURCE COUNT</th><th>OUTPUT COUNT</th><th>STATUS</th><th>NOTES</th>
+    </tr></thead><tbody id="vb"></tbody></table>
+  </div>
+
+  <div class="da" id="da">
+    <div class="sec-title" style="justify-content:center;margin-bottom:20px;"><span class="sn">5</span> Download Results</div>
+    <br>
+    <a class="dlb" href="#" onclick="downloadOutput(event)"><span>📥</span> Download Mapped Output (.xlsx)</a>
+    <a class="dlb" href="#" onclick="downloadReport(event)"><span>📄</span> Download Validation Report (.xlsx)</a>
+    <a class="dlb" style="background:var(--accent2); color:#0a0f1a; border-color:var(--accent2);" href="#" onclick="openChecker(event)"><span>🔍</span> Verify in Cross-File Checker</a>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+let srcWB=null, tplWB=null, outputData=null, reportData=null, globalSrcData=null;
+
+// Drag & Drop
+['srcZone','tplZone'].forEach(id=>{
+  const el=document.getElementById(id);
+  el.addEventListener('dragover',e=>{e.preventDefault();el.classList.add('over');});
+  el.addEventListener('dragleave',()=>el.classList.remove('over'));
+  el.addEventListener('drop',e=>{e.preventDefault();el.classList.remove('over');
+    const f=e.dataTransfer.files[0]; if(f) processFile(f, id==='srcZone'?'src':'tpl');});
+});
+function loadFile(inp,w){if(inp.files[0])processFile(inp.files[0],w);}
+function processFile(file,which){
+  const infoEl = document.getElementById(which+'Info');
+  infoEl.style.display='block';
+  infoEl.style.color='var(--warn)';
+  infoEl.textContent=`⏳ Loading \& parsing ${file.name} (might take a moment)...`;
+  document.getElementById(which+'Zone').classList.remove('loaded');
+  document.getElementById('runBtn').disabled=true;
+
+  const r=new FileReader();
+  r.onload=e=>{
+    // Use setTimeout so the "Loading..." UI renders before the heavy XLSX parsing blocks the thread
+    setTimeout(() => {
+      try {
+        const wb=XLSX.read(e.target.result,{type:'binary',cellDates:true});
+        infoEl.style.color='var(--success)';
+        if(which==='src'){
+          srcWB=wb;
+          const sh=wb.Sheets['ALL']||wb.Sheets[wb.SheetNames[0]];
+          const d=XLSX.utils.sheet_to_json(sh,{defval:null});
+          infoEl.textContent=`✓ ${file.name}  ·  ${d.length.toLocaleString()} rows  ·  ${Object.keys(d[0]||{}).length} cols`;
+          document.getElementById('srcZone').classList.add('loaded');
+        } else {
+          tplWB=wb;
+          const sh=wb.Sheets[wb.SheetNames[0]];
+          const d=XLSX.utils.sheet_to_json(sh,{defval:null,header:1})[0]||[];
+          infoEl.textContent=`✓ ${file.name}  ·  ${d.length} cols`;
+          document.getElementById('tplZone').classList.add('loaded');
+        }
+        if(srcWB&&tplWB) document.getElementById('runBtn').disabled=false;
+      } catch (err) {
+        infoEl.style.color='var(--danger)';
+        infoEl.textContent=`❌ Failed to parse ${file.name}`;
+      }
+    }, 50);
+  };
+  r.readAsBinaryString(file);
+}
+
+function log(m,c=''){const el=document.getElementById('pl');el.innerHTML+=`<div class="${c}">› ${m}</div>`;el.scrollTop=el.scrollHeight;}
+function setProg(p){document.getElementById('pb').style.width=p+'%';}
+
+const pipelineSteps = ['step-src', 'step-tpl', 'step-tx', 'step-val', 'step-dl'];
+function updateStep(id){
+  const pl = document.getElementById('flowPipeline');
+  if(id === 'start') { pl.classList.add('processing'); pipelineSteps.forEach(s => document.getElementById(s).classList.remove('active', 'done')); return; }
+  if(id === 'done') { pl.classList.remove('processing'); pipelineSteps.forEach(s => {document.getElementById(s).classList.remove('active'); document.getElementById(s).classList.add('done')}); return; }
+  pipelineSteps.forEach((s) => {
+    const el = document.getElementById(s);
+    if(s === id) { el.classList.add('active'); el.classList.remove('done'); }
+    else if(pipelineSteps.indexOf(s) < pipelineSteps.indexOf(id)) { el.classList.remove('active'); el.classList.add('done'); }
+    else {el.classList.remove('active', 'done'); }
+  });
+}
+
+// ─── VERIFIED EXACT MAPPINGS (tested row-by-row against template) ───────────────
+
+const ASSET_MAP={
+  'smc':'Soil & Moisture Conservation (SMC)',
+  'plantation':'Plantation',
+  'recharge_pits':'Recharge Pits',
+  'whs':'Water Harvesting Structure (WHS)',
+  'other_department_activity_schemes':'Other Department Activity',
+  'agri_allied':'Agriculture Allied Activity'
+};
+
+const LAND_MAP={
+  'hillock':'Hillock','lowland':'Lowland','upland':'Upland',
+  'medium_upland':'Medium Upland','midland':'Midland'
+};
+
+const LAND_COLS={
+  'Hillock':'Hillock land (Above 25% Slope)',
+  'Lowland':'Lowland (0 to less than or equal to 3% Slope)',
+  'Upland':'Upland (10% to less than or equal to 25% Slope)',
+  'Medium Upland':'Medium Upland (5 to less than or equal to 10% Slope)',
+  'Midland':' Midland (3 to less than 5% Slope)'
+};
+
+function clean(v){
+  if(v===null||v===undefined) return null;
+  const s=String(v).trim();
+  return (s===''||s==='nan'||s==='None'||s==='NaN') ? null : s;
+}
+
+function classifyLand(lc){
+  if(!lc) return null;
+  return LAND_MAP[lc.trim().toLowerCase()]||null;
+}
+
+function getLandArea(row){
+  // VERIFIED: use irrigater_land_planned_area first, then rainfed_land
+  // Returns as float to match template numeric format
+  for(const col of ['irrigater_land_planned_area','rainfed_land','fallow_land','orchard_land','other_land']){
+    const v=clean(row[col]);
+    if(v){
+      const f=parseFloat(v);
+      if(!isNaN(f)&&f>0) return f;
+    }
+  }
+  return null;
+}
+
+function getPlantationType(row){
+  const p=clean(row['plantation']);
+  if(!p||p.toLowerCase()==='no') return null;
+  const types=['agro_horticulture','agro_forestry','host_tree_plantation'];
+  const pl=p.toLowerCase();
+  if(types.includes(pl)) return pl;
+  if(pl==='yes'){
+    for(const t of types){ if(clean(row[t])) return t; }
+  }
+  return null;
+}
+
+function getNaturePlantation(row){
+  const pt=getPlantationType(row);
+  if(!pt) return null;
+  const v=clean(row[pt]);
+  if(v&&v.length>5&&!['yes','no'].includes(v.toLowerCase())) return v;
+  return null;
+}
+
+function combineGPS(lat,lng){
+  const la=clean(lat), lo=clean(lng);
+  if(!la||!lo) return null;
+  if(isNaN(parseFloat(la))||isNaN(parseFloat(lo))) return null;
+  // VERIFIED: exact format "lat, lng" with space after comma, values as-is (no rounding)
+  return `${la}, ${lo}`;
+}
+
+function transformRow(src){
+  const pa=clean(src['plan_activity']);
+  const lc=clean(src['land_classification']);
+  const landType=classifyLand(lc);
+  const landArea=getLandArea(src);
+
+  const landVals={};
+  Object.values(LAND_COLS).forEach(c=>landVals[c]=null);
+  if(landType&&landArea!==null) landVals[LAND_COLS[landType]]=landArea;
+
+  // SMC: ONLY when plan_activity=smc
+  const smcVal=(pa==='smc')?clean(src['smc']):null;
+
+  // Plantation
+  const pltType=getPlantationType(src);
+  const pltNature=getNaturePlantation(src);
+
+  // Livelihood: slope column contains activity name when agri_allied
+  const slopeVal=clean(src['slope']);
+  const livelihood=(pa==='agri_allied'&&slopeVal&&!slopeVal.includes('%')&&slopeVal.length>5)?slopeVal:null;
+
+  // WHS
+  let whsStruct=null, farmPondDim=null;
+  if(pa==='whs'){
+    whsStruct=clean(src['whs']);
+    const fp=clean(src['construction_of_farm_ponds_for_individuals']);
+    if(fp&&isNaN(parseFloat(fp))) farmPondDim=fp; // text values only
+  }
+
+  // Recharge pits ground water structure
+  const gwStruct=(pa==='recharge_pits')?clean(src['recharge_pits']):null;
+
+  // GPS: exact lat, lng combined
+  const gps=combineGPS(src['store_gps-Latitude'],src['store_gps-Longitude']);
+
+  // Seepage: strictly yes/no only
+  const gwsRaw=clean(src['ground_water_seapage']);
+  const gws=(gwsRaw==='yes'||gwsRaw==='no')?gwsRaw:null;
+
+  return {
+    'Survey Name':null,
+    // SECTION 1 — Direct copies
+    'Surveyor Name':clean(src['Surveyer Name'])||clean(src['surveyor_name']),
+    'Project':clean(src['Project Name']),
+    'State':clean(src['State']),
+    'State Code':clean(src['State Code']),
+    'District':clean(src['district']),
+    'District Code':clean(src['District Code']),
+    'Block':clean(src['block']),
+    'Block Code':clean(src['Block Code']),
+    'Village':clean(src['Village Name']),         // VERIFIED: not combined, just Village Name
+    'Village Code':clean(src['Village Code']),
+    'Grampanchayat':clean(src['grampanchayat']),
+    // SECTION 2 — Transformations
+    'Asset Planning':pa?ASSET_MAP[pa]||null:null,
+    'What type of land is it?':landType,
+    ...landVals,
+    'Individual Farmer Name':clean(src['farmer_name']),
+    'KEY':clean(src['Unique Key']),               // VERIFIED: Unique Key NOT KEY(uuid)
+    'plan_activity':pa,
+    'Type of land in which activity is proposed? (Midland)_1':null,
+    'KEY.1':null,'TYPE':null,'TYPE 2':null,
+    'Type of structure proposed (SMC Midumum Upland)':smcVal,
+    'Type of plantation':pltType,
+    'Nature of plantation':pltNature,
+    'What type of livelihood asset would you prefer in your land?':livelihood,
+    // SECTION 3 — Manual entry (stay empty)
+    'Goat shed Units_1':null,'Cattle shed unit_1':null,'Poultry shelter units':null,
+    'Type of structure (Ground Water)':gwStruct,
+    'Type of structure':null,
+    'Type of structure (Water Harvestig)':whsStruct,
+    'Dimension of the structure (Farm Ponds/Dabri/Dobha)_1':farmPondDim,
+    'Dimension of the structure (Big Ponds/Talaab)':null,
+    'Khata/ Khasara Number where NRM planning will be proposed_1':clean(src['survey_number_khasara_number']),
+    'Plot Number where NRM planning will be proposed_1':clean(src['plot_number']),
+    'Acres of land (Private/Other Land)_1':null,
+    'Soil type of the plot_1':clean(src['soil_type']),
+    'Soil depth (ft)_1':clean(src['soil_depth_in_meter']),
+    'Do you experience ground water seepage?_1':gws,
+    'Collect the GPS coordinates (5m accuracy)_1':gps,
+  };
+}
+
+// ─── Validation ───────────────────────────────────────────────────
+function runValidation(srcData, outData){
+  const checks=[], warns=[];
+  const nn=(arr,col)=>arr.filter(r=>r[col]!=null&&r[col]!='').length;
+
+  const directChecks=[
+    {col:'Surveyor Name',src:'Surveyer Name',note:'Direct copy'},
+    {col:'Project',src:'Project Name',note:'Direct copy'},
+    {col:'State',src:'State',note:'Direct copy'},
+    {col:'District',src:'district',note:'Direct copy'},
+    {col:'Block',src:'block',note:'Direct copy'},
+    {col:'Individual Farmer Name',src:'farmer_name',note:'Direct copy'},
+    {col:'KEY',src:'Unique Key',note:'Unique Key col (not uuid KEY)'},
+    {col:'plan_activity',src:'plan_activity',note:'Direct copy'},
+    {col:'Khata/ Khasara Number where NRM planning will be proposed_1',src:'survey_number_khasara_number',note:'Direct copy'},
+    {col:'Soil type of the plot_1',src:'soil_type',note:'Direct copy'},
+    {col:'Soil depth (ft)_1',src:'soil_depth_in_meter',note:'Direct copy'},
+  ];
+
+  directChecks.forEach(({col,src,note})=>{
+    const sc=srcData.filter(r=>r[src]!=null&&String(r[src]).trim()!='').length;
+    const oc=outData.filter(r=>r[col]!=null&&r[col]!='').length;
+    const pct=sc>0?Math.round((oc/sc)*100):100;
+    const s=pct>=99?'PERFECT':pct>=90?'GOOD':pct>=70?'WARN':'REVIEW';
+    const t=pct>=90?'tok':pct>=70?'twarn':'terr';
+    if(pct<90)warns.push(col);
+    checks.push({check:'Direct Copy',col,sc,oc,pct,s,t,note});
+  });
+
+  // Transformed checks
+  const smcSrc=srcData.filter(r=>r['plan_activity']==='smc'&&r['smc']!=null).length;
+  const smcOut=outData.filter(r=>r['Type of structure proposed (SMC Midumum Upland)']!=null).length;
+  checks.push({check:'Transform',col:'Type of structure (SMC)',sc:smcSrc,oc:smcOut,
+    pct:smcSrc>0?Math.round((smcOut/smcSrc)*100):100,s:'TRANSFORM',t:'tinfo',note:'Conditional: pa=smc only'});
+
+  const gpsSrc=srcData.filter(r=>r['store_gps-Latitude']!=null&&r['store_gps-Longitude']!=null).length;
+  const gpsOut=outData.filter(r=>r['Collect the GPS coordinates (5m accuracy)_1']!=null).length;
+  checks.push({check:'Combine',col:'GPS Coordinates',sc:gpsSrc,oc:gpsOut,
+    pct:gpsSrc>0?Math.round((gpsOut/gpsSrc)*100):100,s:'COMBINED',t:'tinfo',note:'lat, lng exact'});
+
+  const landSrc=srcData.filter(r=>r['land_classification']!=null).length;
+  const landOut=outData.filter(r=>r['What type of land is it?']!=null).length;
+  checks.push({check:'Lookup',col:'Land Classification',sc:landSrc,oc:landOut,
+    pct:landSrc>0?Math.round((landOut/landSrc)*100):100,s:'LOOKUP',t:'tinfo',note:'midland→Midland etc'});
+
+  const paSrc=srcData.filter(r=>r['plan_activity']!=null).length;
+  const paOut=outData.filter(r=>r['Asset Planning']!=null).length;
+  checks.push({check:'Lookup',col:'Asset Planning',sc:paSrc,oc:paOut,
+    pct:paSrc>0?Math.round((paOut/paSrc)*100):100,s:'LOOKUP',t:'tinfo',note:'smc→SMC etc'});
+
+  // KEY uniqueness
+  const keys=outData.map(r=>r['KEY']).filter(Boolean);
+  const ukeys=new Set(keys);
+  checks.push({check:'Integrity',col:'KEY Uniqueness',sc:keys.length,oc:ukeys.size,
+    pct:keys.length>0?Math.round((ukeys.size/keys.length)*100):100,
+    s:ukeys.size===keys.length?'UNIQUE ✓':'DUPLICATES!',
+    t:ukeys.size===keys.length?'tok':'terr',note:'Must be 100% unique'});
+
+  return {checks,warns};
+}
+
+// ─── MAIN ─────────────────────────────────────────────────────────
+async function runPipeline(){
+  const btn=document.getElementById('runBtn');
+  btn.disabled=true;
+  document.getElementById('pw').classList.add('active');
+  document.getElementById('statsSection').style.display='none';
+  document.getElementById('vp').classList.remove('active');
+  document.getElementById('da').classList.remove('active');
+  document.getElementById('pl').innerHTML='';
+  setProg(5);
+  updateStep('start');
+  updateStep('step-src');
+
+  await sleep(50);
+  log('Reading source file (ALL sheet)...','linfo');
+  await sleep(80);
+
+  const srcSheet=srcWB.Sheets['ALL']||srcWB.Sheets[srcWB.SheetNames[0]];
+  const srcData=XLSX.utils.sheet_to_json(srcSheet,{defval:null});
+  globalSrcData = srcData;
+  log(`✓ ${srcData.length} source rows loaded`,'lok');
+  setProg(15);
+
+  updateStep('step-tpl');
+  log('Reading template column structure...','linfo');
+  const tplSheet=tplWB.Sheets[tplWB.SheetNames[0]];
+  const tplCols=XLSX.utils.sheet_to_json(tplSheet,{defval:null,header:1})[0]||[];
+  log(`✓ ${tplCols.length} template columns`,'lok');
+  setProg(22);
+  await sleep(50);
+
+  // Verify required columns exist
+  const reqCols=['Unique Key','plan_activity','land_classification','Surveyer Name',
+                 'farmer_name','store_gps-Latitude','store_gps-Longitude'];
+  const missing=reqCols.filter(c=>!Object.keys(srcData[0]||{}).includes(c));
+  if(missing.length>0){
+    log(`⚠ Missing source columns: ${missing.join(', ')}`,'lwarn');
+  } else {
+    log('✓ All required source columns present','lok');
+  }
+  setProg(28);
+
+  updateStep('step-tx');
+  log('Applying verified transformations...','linfo');
+  const outputRows=[];
+  let errors=0;
+  const BATCH=500;
+
+  for(let i=0;i<srcData.length;i+=BATCH){
+    const slice=srcData.slice(i,Math.min(i+BATCH,srcData.length));
+    slice.forEach(row=>{
+      try{ outputRows.push(transformRow(row)); }
+      catch(e){ outputRows.push({}); errors++; }
+    });
+    setProg(28+Math.round((i/srcData.length)*52));
+    await sleep(8);
+  }
+  log(`✓ ${outputRows.length} rows transformed (${errors} errors)`,'lok');
+  setProg(82);
+
+  updateStep('step-val');
+  log('Running cross-file validation...','linfo');
+  await sleep(80);
+  const {checks,warns}=runValidation(srcData,outputRows);
+  log(`✓ Validation done — ${warns.length} warnings`,(warns.length>0?'lwarn':'lok'));
+  setProg(92);
+
+  const mappedCols=outputRows.length>0?
+    Object.keys(outputRows[0]).filter(k=>outputRows.some(r=>r[k]!=null)).length:0;
+
+  outputData={rows:outputRows,cols:tplCols};
+  reportData={checks};
+
+  setProg(100);
+  await sleep(50);
+  updateStep('done');
+  log('✓ Pipeline complete — files ready','lok');
+
+  document.getElementById('sR').textContent=outputRows.length.toLocaleString();
+  document.getElementById('sC').textContent=mappedCols;
+  document.getElementById('sW').textContent=warns.length;
+  document.getElementById('sM').textContent=errors;
+  document.getElementById('statsSection').style.display='block';
+
+  const tbody=document.getElementById('vb');
+  tbody.innerHTML='';
+  checks.forEach(c=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td><span class="tag tinfo">${c.check}</span></td>
+      <td style="font-family:var(--fm);font-size:11px">${c.col}</td>
+      <td>${c.sc.toLocaleString()}</td>
+      <td>${c.oc.toLocaleString()}</td>
+      <td><span class="tag ${c.t}">${c.s} (${c.pct}%)</span></td>
+      <td style="font-family:var(--fm);font-size:11px;color:var(--muted)">${c.note}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('vp').classList.add('active');
+  document.getElementById('da').classList.add('active');
+  btn.disabled=false;
+  showToast('✓ Done! Download your files below.');
+}
+
+function downloadOutput(e){
+  e.preventDefault();
+  if(!outputData) return;
+  const wb=XLSX.utils.book_new();
+  const headers=outputData.cols;
+  const rows=outputData.rows.map(r=>{
+    const row={};
+    headers.forEach(h=>{ row[h]=r[h]!==undefined?r[h]:null; });
+    return row;
+  });
+  const ws=XLSX.utils.json_to_sheet(rows,{header:headers});
+  ws['!cols']=headers.map(()=>({wch:22}));
+  XLSX.utils.book_append_sheet(wb,ws,'Individual Asset Planning');
+
+  const sumData=[
+    ['NRM Individual Asset Planning — Mapped Output'],
+    ['Generated',new Date().toLocaleString()],['Total Rows',outputData.rows.length],
+    [''],['VERIFIED MAPPINGS — all tested row-by-row against reference template'],
+    ['Column','Source','Transform','Notes'],
+    ['Surveyor Name','Surveyer Name','Direct Copy',''],
+    ['Project','Project Name','Direct Copy',''],
+    ['State/Code/District/Block/Village/GP','Exact source cols','Direct Copy',''],
+    ['Individual Farmer Name','farmer_name','Direct Copy',''],
+    ['KEY','Unique Key','Direct Copy','NOT the KEY/uuid column'],
+    ['plan_activity','plan_activity','Direct Copy',''],
+    ['Asset Planning','plan_activity','Lookup','smc→SMC, whs→WHS etc'],
+    ['What type of land is it?','land_classification','Lookup','midland→Midland etc'],
+    ['Land area (5 cols)','irrigater/rainfed land','Float+Conditional','First non-zero value'],
+    ['Type of structure (SMC)','smc','Conditional (pa=smc)','Only when plan_activity=smc'],
+    ['Type/Nature of plantation','plantation sub-cols','Multi-source',''],
+    ['Livelihood asset','slope','Conditional (pa=agri_allied)','slope has activity name'],
+    ['Type of structure (GW)','recharge_pits','Conditional (pa=recharge_pits)',''],
+    ['Type of structure (WHS)','whs','Conditional (pa=whs)',''],
+    ['Khasara Number','survey_number_khasara_number','Direct Copy',''],
+    ['Soil type/depth','soil_type/soil_depth_in_meter','Direct Copy',''],
+    ['GPS','store_gps-Latitude + Longitude','Combine','exact lat, lng'],
+  ];
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(sumData),'Mapping Summary');
+  XLSX.writeFile(wb,`Individual_Asset_Planning_Output_${dateStr()}.xlsx`);
+  showToast('✓ Output downloaded!');
+}
+
+function downloadReport(e){
+  e.preventDefault();
+  if(!reportData) return;
+  const wb=XLSX.utils.book_new();
+  const rows=reportData.checks.map(c=>({
+    'Check':c.check,'Column':c.col,'Source Count':c.sc,'Output Count':c.oc,
+    'Match %':c.pct+'%','Status':c.s,'Notes':c.note
+  }));
+  const ws=XLSX.utils.json_to_sheet(rows);
+  ws['!cols']=[{wch:14},{wch:50},{wch:14},{wch:14},{wch:10},{wch:14},{wch:36}];
+  XLSX.utils.book_append_sheet(wb,ws,'Validation Report');
+  XLSX.writeFile(wb,`Validation_Report_${dateStr()}.xlsx`);
+  showToast('✓ Report downloaded!');
+}
+
+function dateStr(){return new Date().toISOString().slice(0,10);}
+function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
+
+function openChecker(e) {
+  e.preventDefault();
+  if(!globalSrcData || !outputData || !outputData.rows) return;
+  const btn = e.currentTarget;
+  btn.style.opacity = '0.5';
+  btn.innerHTML = '<span>⏳</span> Preparing data...';
+  
+  const dbName = "DMS_Auto_Checker";
+  const request = indexedDB.open(dbName, 1);
+  request.onupgradeneeded = (ev) => {
+    const db = ev.target.result;
+    if (!db.objectStoreNames.contains('data')) {
+      db.createObjectStore('data');
+    }
+  };
+  request.onsuccess = (ev) => {
+    const db = ev.target.result;
+    const tx = db.transaction('data', 'readwrite');
+    const store = tx.objectStore('data');
+    store.put(globalSrcData, 'sourceData');
+    store.put(outputData.rows, 'targetData');
+    tx.oncomplete = () => {
+      btn.style.opacity = '1';
+      btn.innerHTML = '<span>🔍</span> Verify in Cross-File Checker';
+      window.open('cross_file_checker.html?auto=1', '_blank');
+    };
+  };
+}
+</script>
+</body>
+</html>

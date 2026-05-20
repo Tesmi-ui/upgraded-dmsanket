@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cross-File Data Checker</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #222636;
+    --border: #2e3348;
+    --accent: #4f8ef7;
+    --accent2: #7c5cfc;
+    --green: #22c55e;
+    --red: #ef4444;
+    --orange: #f59e0b;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: linear-gradient(135deg, #0f1117 0%, #1a1d27 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-icon {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .header h1 { font-size: 18px; font-weight: 600; letter-spacing: -0.3px; }
+  .header p  { font-size: 12px; color: var(--muted); margin-top: 2px; font-family: var(--mono); }
+
+  /* ── Layout ── */
+  .main { display: grid; grid-template-columns: 340px 1fr; min-height: calc(100vh - 73px); }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  /* ── Drop zones ── */
+  .drop-zone {
+    border: 1.5px dashed var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    background: var(--surface2);
+  }
+  .drop-zone:hover, .drop-zone.drag-over {
+    border-color: var(--accent);
+    background: rgba(79,142,247,0.06);
+  }
+  .drop-zone.loaded {
+    border-color: var(--green);
+    background: rgba(34,197,94,0.05);
+  }
+  .drop-zone input[type=file] {
+    position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+  }
+  .drop-icon { font-size: 28px; margin-bottom: 8px; }
+  .drop-title { font-size: 13px; font-weight: 500; }
+  .drop-sub   { font-size: 11px; color: var(--muted); margin-top: 4px; font-family: var(--mono); }
+  .drop-badge {
+    display: inline-block;
+    background: rgba(34,197,94,0.15);
+    color: var(--green);
+    border: 1px solid rgba(34,197,94,0.3);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-family: var(--mono);
+    margin-top: 6px;
+  }
+
+  /* ── Sheet selector ── */
+  .sheet-row {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-family: var(--sans);
+    width: 100%;
+    appearance: none;
+    cursor: pointer;
+  }
+  select:focus { outline: none; border-color: var(--accent); }
+
+  /* ── Column mapping ── */
+  .mapping-list { display: flex; flex-direction: column; gap: 6px; max-height: 240px; overflow-y: auto; }
+  .mapping-row {
+    display: grid;
+    grid-template-columns: 1fr 20px 1fr;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-family: var(--mono);
+  }
+  .mapping-row span { color: var(--muted); text-align: center; font-size: 10px; }
+  .mapping-src { color: var(--accent); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mapping-tgt { color: var(--green); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .add-mapping {
+    display: flex; gap: 6px;
+  }
+  .add-mapping select { flex: 1; font-size: 11px; padding: 6px 8px; }
+  .btn-add {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-add:hover { background: #3a7ef0; }
+
+  /* ── Run button ── */
+  .btn-run {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    letter-spacing: 0.3px;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .btn-run:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-run:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  /* ── Export buttons ── */
+  .export-row { display: flex; gap: 8px; }
+  .btn-export {
+    flex: 1;
+    background: var(--surface2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .btn-export:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-export:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  /* ── Content area ── */
+  .content { padding: 28px; overflow-y: auto; display: flex; flex-direction: column; gap: 24px; }
+
+  /* ── Empty state ── */
+  .empty-state {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; height: 100%; gap: 16px;
+    color: var(--muted); text-align: center;
+  }
+  .empty-state .big-icon { font-size: 64px; opacity: 0.3; }
+  .empty-state h2 { font-size: 18px; font-weight: 500; color: var(--text); opacity: 0.5; }
+  .empty-state p  { font-size: 13px; max-width: 340px; line-height: 1.6; }
+
+  /* ── Summary cards ── */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .stat-card.green::before { background: var(--green); }
+  .stat-card.red::before   { background: var(--red); }
+  .stat-card.orange::before{ background: var(--orange); }
+  .stat-card.blue::before  { background: var(--accent); }
+  .stat-number { font-size: 32px; font-weight: 600; font-family: var(--mono); }
+  .stat-label  { font-size: 11px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .stat-card.green .stat-number { color: var(--green); }
+  .stat-card.red   .stat-number { color: var(--red); }
+  .stat-card.orange.stat-number { color: var(--orange); }
+  .stat-card.blue  .stat-number { color: var(--accent); }
+
+  /* ── Column result table ── */
+  .result-table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .result-table-wrap h3 {
+    padding: 16px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: 0.3px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead tr { background: var(--surface2); }
+  th {
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: left;
+    color: var(--muted);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 10px 16px;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(46,51,72,0.5);
+    font-family: var(--mono);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 10px; border-radius: 6px;
+    font-size: 11px; font-weight: 600; font-family: var(--mono);
+  }
+  .badge.match   { background: rgba(34,197,94,0.12);  color: var(--green);  border: 1px solid rgba(34,197,94,0.25); }
+  .badge.mismatch{ background: rgba(239,68,68,0.12);  color: var(--red);    border: 1px solid rgba(239,68,68,0.25); }
+  .badge.warn    { background: rgba(245,158,11,0.12); color: var(--orange); border: 1px solid rgba(245,158,11,0.25); }
+
+  .pct-bar-wrap { display: flex; align-items: center; gap: 10px; }
+  .pct-bar {
+    flex: 1; height: 6px;
+    background: var(--surface2);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .pct-bar-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+
+  /* ── Row detail table ── */
+  .detail-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .detail-wrap h3 {
+    padding: 16px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .detail-scroll { overflow-x: auto; max-height: 400px; overflow-y: auto; }
+  .detail-scroll td { white-space: nowrap; max-width: 200px; overflow: hidden; text-overflow: ellipsis; }
+  .cell-src { color: var(--accent); }
+  .cell-tgt { color: var(--green); }
+  .cell-diff-src { color: var(--red); }
+  .cell-diff-tgt { color: var(--orange); }
+
+  .filter-row {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 10px; align-items: center;
+  }
+  .filter-row select { width: auto; font-size: 12px; padding: 6px 10px; }
+  .filter-row input {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-family: var(--mono);
+    flex: 1;
+  }
+  .filter-row input:focus { outline: none; border-color: var(--accent); }
+
+  /* ── Progress ── */
+  .progress-wrap {
+    display: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+  }
+  .progress-wrap.show { display: block; }
+  .progress-bar-outer {
+    height: 8px; background: var(--surface2); border-radius: 4px;
+    margin: 16px 0 8px; overflow: hidden;
+  }
+  .progress-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 4px;
+    transition: width 0.3s;
+  }
+  .progress-msg { font-size: 12px; color: var(--muted); font-family: var(--mono); }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-icon">🔍</div>
+  <div>
+    <h1>Cross-File Data Checker</h1>
+    <p>Upload source &amp; target Excel/CSV → auto-detect mismatches → export report</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ── SIDEBAR ── -->
+  <div class="sidebar">
+
+    <!-- Source file -->
+    <div>
+      <div class="section-label">① Source File (Original Data)</div>
+      <div class="drop-zone" id="dz-src" ondragover="dragOver(event,'src')" ondragleave="dragLeave('src')" ondrop="dropFile(event,'src')">
+        <input type="file" accept=".xlsx,.xls,.csv" onchange="loadFile(event,'src')"/>
+        <div class="drop-icon">📂</div>
+        <div class="drop-title" id="src-name">Drop file here or click</div>
+        <div class="drop-sub">.xlsx · .xls · .csv</div>
+        <div id="src-badge" style="display:none" class="drop-badge"></div>
+      </div>
+      <div class="sheet-row" style="margin-top:10px">
+        <div class="section-label" style="margin-bottom:0">Sheet</div>
+        <select id="src-sheet" onchange="onSheetChange('src')"><option>— load file first —</option></select>
+      </div>
+    </div>
+
+    <!-- Target file -->
+    <div>
+      <div class="section-label">② Target File (Copied Data)</div>
+      <div class="drop-zone" id="dz-tgt" ondragover="dragOver(event,'tgt')" ondragleave="dragLeave('tgt')" ondrop="dropFile(event,'tgt')">
+        <input type="file" accept=".xlsx,.xls,.csv" onchange="loadFile(event,'tgt')"/>
+        <div class="drop-icon">📋</div>
+        <div class="drop-title" id="tgt-name">Drop file here or click</div>
+        <div class="drop-sub">.xlsx · .xls · .csv</div>
+        <div id="tgt-badge" style="display:none" class="drop-badge"></div>
+      </div>
+      <div class="sheet-row" style="margin-top:10px">
+        <div class="section-label" style="margin-bottom:0">Sheet</div>
+        <select id="tgt-sheet" onchange="onSheetChange('tgt')"><option>— load file first —</option></select>
+      </div>
+    </div>
+
+    <!-- Column mapping -->
+    <div>
+      <div class="section-label">③ Column Mapping (Source → Target)</div>
+      <div class="mapping-list" id="mapping-list"></div>
+      <div class="add-mapping" style="margin-top:8px">
+        <select id="map-src-col"><option>— source col —</option></select>
+        <select id="map-tgt-col"><option>— target col —</option></select>
+        <button class="btn-add" onclick="addMapping()">+ Add</button>
+      </div>
+      <button class="btn-add" style="margin-top:8px;width:100%;background:var(--surface2);color:var(--muted);border:1px solid var(--border)" onclick="autoDetectMappings()">⚡ Auto-detect mappings</button>
+    </div>
+
+    <!-- Run -->
+    <div style="margin-top:auto">
+      <button class="btn-run" id="btn-run" onclick="runCheck()" disabled>▶ Run Mismatch Check</button>
+      <div style="height:10px"></div>
+      <div class="export-row">
+        <button class="btn-export" id="btn-xlsx" disabled onclick="exportExcel()">⬇ Excel Report</button>
+        <button class="btn-export" id="btn-csv"  disabled onclick="exportCSV()">⬇ CSV Report</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── CONTENT ── -->
+  <div class="content" id="content">
+    <div class="empty-state">
+      <div class="big-icon">📊</div>
+      <h2>No data yet</h2>
+      <p>Upload your source and target Excel files on the left, map the columns you want to compare, then click <strong>Run Mismatch Check</strong>.</p>
+      <p style="margin-top:8px; font-family:var(--mono); font-size:11px; color:var(--muted)">Works with .xlsx · .xls · .csv · Google Sheets exports</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── State ────────────────────────────────────────────────────────
+const state = {
+  src: { wb: null, data: null, sheetName: '' },
+  tgt: { wb: null, data: null, sheetName: '' },
+  mappings: [],   // [{srcCol, tgtCol}]
+  results: null,
+  rowDetails: [],
+};
+
+// ── Fuzzy name similarity ────────────────────────────────────────
+function normalize(s) {
+  return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+}
+function similarity(a, b) {
+  const na = normalize(a), nb = normalize(b);
+  if (!na || !nb) return 0;
+  if (na === nb) return 1;
+  if (na.includes(nb) || nb.includes(na)) return 0.85;
+  let matches = 0;
+  for (let c of na) if (nb.includes(c)) matches++;
+  return matches / Math.max(na.length, nb.length);
+}
+
+// ── Auto-detect mappings ─────────────────────────────────────────
+function autoDetectMappings() {
+  const sd = state.src.data, td = state.tgt.data;
+  if (!sd || !td) { alert('Load both files first'); return; }
+  const srcCols = Object.keys(sd[0]||{});
+  const tgtCols = Object.keys(td[0]||{});
+  state.mappings = [];
+
+  // Known fixed mappings for this project
+  const known = [
+    ['Surveyer Name','Surveyor Name'],['Project Name','Project'],
+    ['State','State'],['State Code','State Code'],
+    ['district','District'],['District Code','District Code'],
+    ['block','Block'],['Block Code','Block Code'],
+    ['Village Name','Village'],['Village Code','Village Code'],
+    ['grampanchayat','Grampanchayat'],['farmer_name','Individual Farmer Name'],
+    ['KEY','KEY'],['plan_activity','plan_activity'],
+    ['survey_number_khasara_number','Khata/ Khasara Number where NRM planning will be proposed_1'],
+    ['plot_number','Plot Number where NRM planning will be proposed_1'],
+    ['soil_type','Soil type of the plot_1'],
+    ['soil_depth_in_meter','Soil depth (ft)_1'],
+    ['ground_water_seapage','Do you experience ground water seepage?_1'],
+  ];
+
+  for (const [sc, tc] of known) {
+    if (srcCols.includes(sc) && tgtCols.includes(tc)) {
+      if (!state.mappings.find(m => m.srcCol===sc || m.tgtCol===tc))
+        state.mappings.push({srcCol:sc, tgtCol:tc});
+    }
+  }
+
+  // Fuzzy match remaining
+  for (const sc of srcCols) {
+    if (state.mappings.find(m=>m.srcCol===sc)) continue;
+    let best = null, bestScore = 0.75;
+    for (const tc of tgtCols) {
+      if (state.mappings.find(m=>m.tgtCol===tc)) continue;
+      const s = similarity(sc, tc);
+      if (s > bestScore) { bestScore = s; best = tc; }
+    }
+    if (best) state.mappings.push({srcCol: sc, tgtCol: best});
+  }
+
+  renderMappings();
+  updateRunBtn();
+}
+
+// ── Drag / drop / file load ──────────────────────────────────────
+function dragOver(e, side) { e.preventDefault(); document.getElementById('dz-'+side).classList.add('drag-over'); }
+function dragLeave(side)   { document.getElementById('dz-'+side).classList.remove('drag-over'); }
+function dropFile(e, side) {
+  e.preventDefault(); dragLeave(side);
+  const file = e.dataTransfer.files[0];
+  if (file) parseFile(file, side);
+}
+function loadFile(e, side) {
+  const file = e.target.files[0];
+  if (file) parseFile(file, side);
+}
+
+function parseFile(file, side) {
+  const nameEl = document.getElementById(side+'-name');
+  nameEl.textContent = `⏳ Loading \& parsing...`;
+  nameEl.style.color = 'var(--orange)';
+  document.getElementById('dz-'+side).classList.remove('loaded');
+
+  const reader = new FileReader();
+  reader.onload = ev => {
+    setTimeout(() => {
+      try {
+        const data = new Uint8Array(ev.target.result);
+        const wb = XLSX.read(data, {type:'array'});
+        state[side].wb = wb;
+
+        const sel = document.getElementById(side+'-sheet');
+        sel.innerHTML = wb.SheetNames.map(n=>`<option>${n}</option>`).join('');
+        state[side].sheetName = wb.SheetNames[0];
+        
+        loadSheetSync(side, file.name);
+      } catch (err) {
+        nameEl.textContent = `❌ Error parsing file`;
+        nameEl.style.color = 'var(--red)';
+      }
+    }, 50);
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function loadSheetSync(side, fileName) {
+  const nameEl = document.getElementById(side+'-name');
+  try {
+    const wb = state[side].wb;
+    const name = state[side].sheetName;
+    if (!wb || !name) return;
+    const ws = wb.Sheets[name];
+    state[side].data = XLSX.utils.sheet_to_json(ws, {defval:''});
+    
+    const badge = document.getElementById(side+'-badge');
+    if (state[side].data) {
+      badge.textContent = `${state[side].data.length.toLocaleString()} rows`;
+    }
+    nameEl.textContent = fileName || (side === 'src' ? 'Auto Generated Source' : 'Mapped Target (Output)');
+    nameEl.style.color = 'inherit';
+    document.getElementById('dz-'+side).classList.add('loaded');
+    badge.style.display = 'inline-block';
+    
+    populateColSelects();
+    updateRunBtn();
+  } catch (err) {
+    nameEl.textContent = `❌ Error rendering sheet`;
+    nameEl.style.color = 'var(--red)';
+  }
+}
+
+function onSheetChange(side) {
+  state[side].sheetName = document.getElementById(side+'-sheet').value;
+  
+  const nameEl = document.getElementById(side+'-name');
+  const oldText = nameEl.textContent;
+  nameEl.textContent = `⏳ Loading sheet...`;
+  nameEl.style.color = 'var(--orange)';
+  
+  setTimeout(() => {
+    loadSheetSync(side, oldText !== '⏳ Loading sheet...' ? oldText : null);
+  }, 50);
+}
+
+function populateColSelects() {
+  for (const side of ['src','tgt']) {
+    const d = state[side].data;
+    if (!d || !d.length) continue;
+    const cols = Object.keys(d[0]);
+    const sel = document.getElementById('map-'+side+'-col');
+    sel.innerHTML = `<option>— ${side} col —</option>` + cols.map(c=>`<option>${c}</option>`).join('');
+  }
+}
+
+// ── Mappings UI ──────────────────────────────────────────────────
+function addMapping() {
+  const sc = document.getElementById('map-src-col').value;
+  const tc = document.getElementById('map-tgt-col').value;
+  if (sc.startsWith('—') || tc.startsWith('—')) { alert('Select both columns'); return; }
+  if (state.mappings.find(m=>m.srcCol===sc && m.tgtCol===tc)) return;
+  state.mappings.push({srcCol:sc, tgtCol:tc});
+  renderMappings();
+  updateRunBtn();
+}
+
+function removeMapping(i) {
+  state.mappings.splice(i,1);
+  renderMappings();
+  updateRunBtn();
+}
+
+function renderMappings() {
+  const el = document.getElementById('mapping-list');
+  if (!state.mappings.length) {
+    el.innerHTML = '<div style="color:var(--muted);font-size:11px;padding:8px;text-align:center">No mappings yet — add manually or use Auto-detect</div>';
+    return;
+  }
+  el.innerHTML = state.mappings.map((m,i)=>`
+    <div class="mapping-row">
+      <span class="mapping-src" title="${m.srcCol}">${m.srcCol}</span>
+      <span>→</span>
+      <span class="mapping-tgt" title="${m.tgtCol}">${m.tgtCol}</span>
+      <span style="cursor:pointer;color:var(--red);margin-left:4px" onclick="removeMapping(${i})">✕</span>
+    </div>`).join('');
+}
+
+function updateRunBtn() {
+  const ok = state.src.data && state.tgt.data && state.mappings.length > 0;
+  document.getElementById('btn-run').disabled = !ok;
+}
+
+// ── Run check ────────────────────────────────────────────────────
+function runCheck() {
+  const sd = state.src.data, td = state.tgt.data;
+  if (!sd || !td) return;
+
+  const content = document.getElementById('content');
+  const prog = document.createElement('div');
+  prog.className = 'progress-wrap show';
+  prog.innerHTML = `<div style="font-size:14px;font-weight:500">Running mismatch check…</div>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="pbar" style="width:0%"></div></div>
+    <div class="progress-msg" id="pmsg">Initializing…</div>`;
+  content.innerHTML = '';
+  content.appendChild(prog);
+
+  setTimeout(() => {
+    const totalRows = Math.max(sd.length, td.length);
+    const colResults = {}; // tgtCol -> {matched, mismatched, rows:[]}
+    state.mappings.forEach(m => {
+      colResults[m.tgtCol] = {srcCol:m.srcCol, matched:0, mismatched:0, rows:[]};
+    });
+
+    state.rowDetails = [];
+
+    for (let i = 0; i < totalRows; i++) {
+      const sr = sd[i] || {};
+      const tr = td[i] || {};
+      let rowHasMismatch = false;
+      const rowInfo = {rowNum: i+2, mismatches:[]};
+
+      for (const m of state.mappings) {
+        const sv = String(sr[m.srcCol]||'').trim().toLowerCase();
+        const tv = String(tr[m.tgtCol]||'').trim().toLowerCase();
+        const match = sv === tv;
+        if (match) {
+          colResults[m.tgtCol].matched++;
+        } else {
+          colResults[m.tgtCol].mismatched++;
+          rowHasMismatch = true;
+          rowInfo.mismatches.push({
+            srcCol: m.srcCol, tgtCol: m.tgtCol,
+            srcVal: String(sr[m.srcCol]||''), tgtVal: String(tr[m.tgtCol]||'')
+          });
+          if (colResults[m.tgtCol].rows.length < 500)
+            colResults[m.tgtCol].rows.push({rowNum:i+2, srcVal:String(sr[m.srcCol]||''), tgtVal:String(tr[m.tgtCol]||'')});
+        }
+      }
+
+      if (rowHasMismatch && state.rowDetails.length < 2000)
+        state.rowDetails.push(rowInfo);
+
+      if (i % 1000 === 0) {
+        const pct = Math.round(i/totalRows*100);
+        document.getElementById('pbar').style.width = pct+'%';
+        document.getElementById('pmsg').textContent = `Checking row ${i.toLocaleString()} of ${totalRows.toLocaleString()}…`;
+      }
+    }
+
+    state.results = {colResults, totalRows};
+    renderResults();
+  }, 50);
+}
+
+// ── Render results ───────────────────────────────────────────────
+function renderResults() {
+  const {colResults, totalRows} = state.results;
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+
+  // Summary counts
+  let perfectCols=0, mismatchCols=0, totalMismatchCells=0;
+  for (const tc in colResults) {
+    const r = colResults[tc];
+    if (r.mismatched===0) perfectCols++;
+    else mismatchCols++;
+    totalMismatchCells += r.mismatched;
+  }
+  const mismatchRows = state.rowDetails.length;
+
+  // Stat cards
+  const grid = document.createElement('div');
+  grid.className = 'summary-grid';
+  grid.innerHTML = `
+    <div class="stat-card blue">
+      <div class="stat-number">${totalRows.toLocaleString()}</div>
+      <div class="stat-label">Total Rows</div>
+    </div>
+    <div class="stat-card green">
+      <div class="stat-number" style="color:var(--green)">${perfectCols}</div>
+      <div class="stat-label">Columns ✓ Perfect</div>
+    </div>
+    <div class="stat-card red">
+      <div class="stat-number" style="color:var(--red)">${mismatchCols}</div>
+      <div class="stat-label">Columns ✗ Mismatch</div>
+    </div>
+    <div class="stat-card orange">
+      <div class="stat-number" style="color:var(--orange)">${mismatchRows.toLocaleString()}</div>
+      <div class="stat-label">Rows with Issues</div>
+    </div>`;
+  content.appendChild(grid);
+
+  // Column summary table
+  const tblWrap = document.createElement('div');
+  tblWrap.className = 'result-table-wrap';
+  tblWrap.innerHTML = `<h3>📋 Column-by-Column Results</h3>
+  <table>
+    <thead><tr>
+      <th>Target Column</th><th>Source Column</th>
+      <th>Matched</th><th>Mismatched</th><th>Match %</th><th>Status</th>
+    </tr></thead>
+    <tbody>${Object.entries(colResults).map(([tc,r])=>{
+      const total = r.matched + r.mismatched;
+      const pct = total>0 ? (r.matched/total*100) : 100;
+      const pctStr = pct.toFixed(1)+'%';
+      const color = pct===100 ? 'var(--green)' : pct>80 ? 'var(--orange)' : 'var(--red)';
+      const badge = r.mismatched===0
+        ? `<span class="badge match">✓ Match</span>`
+        : `<span class="badge ${pct>80?'warn':'mismatch'}">✗ ${r.mismatched.toLocaleString()} issues</span>`;
+      return `<tr>
+        <td style="color:var(--green)">${tc}</td>
+        <td style="color:var(--accent)">${r.srcCol}</td>
+        <td>${r.matched.toLocaleString()}</td>
+        <td style="color:${r.mismatched>0?'var(--red)':'inherit'}">${r.mismatched.toLocaleString()}</td>
+        <td><div class="pct-bar-wrap">
+          <div class="pct-bar"><div class="pct-bar-fill" style="width:${pct}%;background:${color}"></div></div>
+          <span style="color:${color};font-family:var(--mono);font-size:11px;min-width:40px">${pctStr}</span>
+        </div></td>
+        <td>${badge}</td>
+      </tr>`;
+    }).join('')}</tbody>
+  </table>`;
+  content.appendChild(tblWrap);
+
+  // Row detail table
+  if (state.rowDetails.length > 0) {
+    const detWrap = document.createElement('div');
+    detWrap.className = 'detail-wrap';
+
+    const filterHTML = `
+      <div class="filter-row">
+        <select id="col-filter" onchange="filterRows()">
+          <option value="">All mismatched columns</option>
+          ${Object.keys(colResults).filter(tc=>colResults[tc].mismatched>0)
+            .map(tc=>`<option>${tc}</option>`).join('')}
+        </select>
+        <input id="row-search" placeholder="Search source or target value…" oninput="filterRows()"/>
+      </div>`;
+
+    detWrap.innerHTML = `
+      <h3>🔎 Row-Level Mismatch Detail
+        <span style="font-weight:400;font-size:11px;color:var(--muted)">(showing up to 2000 rows)</span>
+      </h3>
+      ${filterHTML}
+      <div class="detail-scroll" id="detail-scroll">
+        ${buildDetailTable(state.rowDetails)}
+      </div>`;
+    content.appendChild(detWrap);
+  }
+
+  // Enable export
+  document.getElementById('btn-xlsx').disabled = false;
+  document.getElementById('btn-csv').disabled  = false;
+}
+
+function buildDetailTable(rows) {
+  if (!rows.length) return '<div style="padding:20px;color:var(--muted);text-align:center">No mismatches to show.</div>';
+  return `<table>
+    <thead><tr>
+      <th>Row #</th><th>Column (Target)</th>
+      <th>Source Value</th><th>Target Value</th><th>Issue</th>
+    </tr></thead>
+    <tbody>${rows.flatMap(r=>r.mismatches.map(m=>{
+      const srcEmpty = !m.srcVal || m.srcVal==='';
+      const tgtEmpty = !m.tgtVal || m.tgtVal==='';
+      const issue = srcEmpty ? 'Empty in source' : tgtEmpty ? 'Not copied (blank in target)' :
+        (m.tgtVal.includes(m.srcVal)||m.srcVal.includes(m.tgtVal)) ? 'Value duplicated/partial' : 'Value mismatch';
+      return `<tr>
+        <td style="color:var(--muted)">${r.rowNum}</td>
+        <td style="color:var(--green)">${m.tgtCol}</td>
+        <td class="${m.srcVal&&!tgtEmpty?'cell-src':'cell-diff-src'}" title="${m.srcVal}">${m.srcVal||'(empty)'}</td>
+        <td class="${tgtEmpty?'cell-diff-tgt':'cell-tgt'}" title="${m.tgtVal}">${m.tgtVal||'(empty)'}</td>
+        <td><span class="badge ${tgtEmpty?'mismatch':issue.includes('partial')?'warn':'mismatch'}">${issue}</span></td>
+      </tr>`;
+    })).join('')}</tbody>
+  </table>`;
+}
+
+function filterRows() {
+  const col = document.getElementById('col-filter').value;
+  const search = (document.getElementById('row-search').value||'').toLowerCase();
+  let rows = state.rowDetails;
+  if (col)    rows = rows.map(r=>({...r, mismatches: r.mismatches.filter(m=>m.tgtCol===col)})).filter(r=>r.mismatches.length);
+  if (search) rows = rows.map(r=>({...r, mismatches: r.mismatches.filter(m=>
+    m.srcVal.toLowerCase().includes(search)||m.tgtVal.toLowerCase().includes(search)
+  )})).filter(r=>r.mismatches.length);
+  document.getElementById('detail-scroll').innerHTML = buildDetailTable(rows);
+}
+
+// ── Export Excel ─────────────────────────────────────────────────
+function exportExcel() {
+  const {colResults, totalRows} = state.results;
+  const wb = XLSX.utils.book_new();
+
+  // Summary sheet
+  const sumRows = [['Target Column','Source Column','Total','Matched','Mismatched','Match %','Status']];
+  for (const [tc,r] of Object.entries(colResults)) {
+    const total = r.matched+r.mismatched;
+    const pct = total>0 ? (r.matched/total*100).toFixed(1)+'%' : '100%';
+    sumRows.push([tc, r.srcCol, total, r.matched, r.mismatched, pct, r.mismatched===0?'✓ Match':'✗ Mismatch']);
+  }
+  sumRows.push([]);
+  sumRows.push(['Total Rows', totalRows, '', 'Mismatch Rows', state.rowDetails.length]);
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(sumRows), 'Summary');
+
+  // Row detail sheet
+  const detRows = [['Excel Row','Target Column','Source Column','Source Value','Target Value','Issue']];
+  for (const r of state.rowDetails) {
+    for (const m of r.mismatches) {
+      const tgtEmpty = !m.tgtVal;
+      const issue = tgtEmpty ? 'Not copied (blank in target)' :
+        (m.tgtVal.includes(m.srcVal)||m.srcVal.includes(m.tgtVal)) ? 'Value duplicated/partial' : 'Value mismatch';
+      detRows.push([r.rowNum, m.tgtCol, m.srcCol, m.srcVal, m.tgtVal, issue]);
+    }
+  }
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(detRows), 'Row Detail');
+
+  XLSX.writeFile(wb, 'CrossFile_Mismatch_Report.xlsx');
+}
+
+// ── Export CSV ───────────────────────────────────────────────────
+function exportCSV() {
+  const {colResults} = state.results;
+  let csv = 'Excel Row,Target Column,Source Column,Source Value,Target Value,Issue\n';
+  for (const r of state.rowDetails) {
+    for (const m of r.mismatches) {
+      const tgtEmpty = !m.tgtVal;
+      const issue = tgtEmpty ? 'Not copied' : 'Mismatch';
+      csv += `${r.rowNum},"${m.tgtCol}","${m.srcCol}","${m.srcVal}","${m.tgtVal}","${issue}"\n`;
+    }
+  }
+  const blob = new Blob([csv], {type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'CrossFile_Mismatch_Report.csv';
+  a.click();
+}
+
+// Init
+renderMappings();
+
+if (window.location.search.includes('auto=1')) {
+  document.getElementById('content').innerHTML = `
+    <div class="empty-state">
+      <div class="big-icon" style="animation: pulseArrow 1s infinite alternate; font-size:48px;">⏳</div>
+      <h2 style="opacity:1; color:var(--accent)">Loading Mapped Data...</h2>
+      <p>Importing data directly from Auto Mapper</p>
+    </div>
+  `;
+  const dbName = "DMS_Auto_Checker";
+  const request = indexedDB.open(dbName, 1);
+  request.onsuccess = (ev) => {
+    const db = ev.target.result;
+    if(!db.objectStoreNames.contains('data')) return;
+    const tx = db.transaction('data', 'readonly');
+    const store = tx.objectStore('data');
+    let srcReady = false, tgtReady = false;
+    
+    store.get('sourceData').onsuccess = (e) => {
+      if (e.target.result) {
+        state.src.data = e.target.result;
+        state.src.sheetName = "Auto_Source";
+        document.getElementById('src-name').textContent = "Auto Generated Source";
+        document.getElementById('dz-src').classList.add('loaded');
+        const badge = document.getElementById('src-badge');
+        badge.textContent = state.src.data.length.toLocaleString() + " rows";
+        badge.style.display = 'inline-block';
+        srcReady = true;
+        if (srcReady && tgtReady) finalizeAutoLoad();
+      }
+    };
+    store.get('targetData').onsuccess = (e) => {
+      if (e.target.result) {
+        state.tgt.data = e.target.result;
+        state.tgt.sheetName = "Mapped_Target";
+        document.getElementById('tgt-name').textContent = "Mapped Target (Output)";
+        document.getElementById('dz-tgt').classList.add('loaded');
+        const badge = document.getElementById('tgt-badge');
+        badge.textContent = state.tgt.data.length.toLocaleString() + " rows";
+        badge.style.display = 'inline-block';
+        tgtReady = true;
+        if (srcReady && tgtReady) finalizeAutoLoad();
+      }
+    };
+  };
+}
+
+function finalizeAutoLoad() {
+  populateColSelects();
+  autoDetectMappings(); 
+  setTimeout(() => runCheck(), 500); 
+}
+</script>
+</body>
+</html>

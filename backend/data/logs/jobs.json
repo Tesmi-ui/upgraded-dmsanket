@@ -1,0 +1,3476 @@
+{
+  "f98ad8c9": {
+    "job_id": "f98ad8c9",
+    "filename": "IGS Deori - Pratik.xlsx",
+    "upload_path": "/app/uploads/f98ad8c9.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "'ProcessingOptions' object has no attribute 'to_execution_context'",
+    "created_at": "2026-03-01T08:21:11.961422",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "277260ff": {
+    "job_id": "277260ff",
+    "filename": "IGS Deori - Pratik.xlsx",
+    "upload_path": "/app/uploads/277260ff.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "'ProcessingOptions' object has no attribute 'to_execution_context'",
+    "created_at": "2026-03-01T08:22:30.756421",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "68d14ba5": {
+    "job_id": "68d14ba5",
+    "filename": "IGS Deori - Pratik.xlsx",
+    "upload_path": "/app/uploads/68d14ba5.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "'ProcessingOptions' object has no attribute 'to_execution_context'",
+    "created_at": "2026-03-01T08:45:46.058006",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "891f79fb": {
+    "job_id": "891f79fb",
+    "filename": "IGS Deori - Pratik.xlsx",
+    "upload_path": "/app/uploads/891f79fb.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "[Errno 1] Operation not permitted",
+    "created_at": "2026-03-01T10:33:36.141472",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "eb72403b": {
+    "job_id": "eb72403b",
+    "filename": "IGS Deori - Pratik.xlsx",
+    "upload_path": "/app/uploads/eb72403b.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "[Errno 1] Operation not permitted: '/app/outputs/eb72403b/backup/eb72403b_BACKUP_20260301_110800.xlsx'",
+    "created_at": "2026-03-01T11:07:56.315629",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "8782e604": {
+    "job_id": "8782e604",
+    "filename": "IGS Deori - Pratik.xlsx",
+    "upload_path": "/app/uploads/8782e604.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-03-01T11:15:15.541959",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "finished_at": "2026-03-01T11:17:55.297810",
+    "stats": {
+      "original_records": 22629,
+      "duplicates_removed": 0,
+      "auto_corrections": 2248,
+      "spell_corrections": 8783,
+      "date_issues": 11033,
+      "placeholder_records": 11033,
+      "final_records": 22629,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/8782e604/8782e604_CLEANED_20260301_111518.xlsx",
+      "report": "/app/outputs/8782e604/8782e604_REPORT_20260301_111518.xlsx",
+      "backup": "/app/outputs/8782e604/backup/8782e604_BACKUP_20260301_111518.xlsx"
+    }
+  },
+  "6d678506": {
+    "job_id": "6d678506",
+    "filename": "IGS-Deori-27Feb26.xlsx",
+    "upload_path": "/app/uploads/6d678506.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-03-01T11:19:27.039977",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "finished_at": "2026-03-01T11:22:09.929006",
+    "stats": {
+      "original_records": 22629,
+      "duplicates_removed": 0,
+      "auto_corrections": 2232,
+      "spell_corrections": 8783,
+      "date_issues": 11033,
+      "placeholder_records": 11033,
+      "final_records": 22629,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/6d678506/6d678506_CLEANED_20260301_111932.xlsx",
+      "report": "/app/outputs/6d678506/6d678506_REPORT_20260301_111932.xlsx",
+      "backup": "/app/outputs/6d678506/backup/6d678506_BACKUP_20260301_111932.xlsx"
+    }
+  },
+  "e2b8f47b": {
+    "job_id": "e2b8f47b",
+    "filename": "cleaned_6d678506.xlsx",
+    "upload_path": "/app/uploads/e2b8f47b.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "[Errno 1] Operation not permitted",
+    "created_at": "2026-03-01T18:16:21.849115",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "4a5959e8": {
+    "job_id": "4a5959e8",
+    "filename": "cleaned_8782e604.xlsx",
+    "upload_path": "/app/uploads/4a5959e8.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "[Errno 1] Operation not permitted",
+    "created_at": "2026-03-01T18:19:00.044666",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "141ea722": {
+    "job_id": "141ea722",
+    "filename": "cleaned_6d678506.xlsx",
+    "upload_path": "/app/uploads/141ea722.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "'ProcessingOptions' object has no attribute 'to_execution_context'",
+    "created_at": "2026-03-01T18:30:44.101841",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "49a3c0d9": {
+    "job_id": "49a3c0d9",
+    "filename": "IGS Deori - Pratik.xlsx",
+    "upload_path": "/app/uploads/49a3c0d9.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "'ProcessingOptions' object has no attribute 'to_execution_context'",
+    "created_at": "2026-03-02T06:17:56.886963",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "4fab5ea5": {
+    "job_id": "4fab5ea5",
+    "filename": "IGS Deori - Pratik.xlsx",
+    "upload_path": "/app/uploads/4fab5ea5.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "[Errno 1] Operation not permitted",
+    "created_at": "2026-03-02T06:42:33.674786",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "dfd538cb": {
+    "job_id": "dfd538cb",
+    "filename": "IGS Deori - Pratik.xlsx",
+    "upload_path": "/app/uploads/dfd538cb.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "[Errno 1] Operation not permitted: '/app/outputs/dfd538cb/backup/dfd538cb_BACKUP_20260302_065054.xlsx'",
+    "created_at": "2026-03-02T06:50:46.903432",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "583d019a": {
+    "job_id": "583d019a",
+    "filename": "IGS Deori - Pratik.xlsx",
+    "upload_path": "/app/uploads/583d019a.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-03-02T06:53:19.395318",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "finished_at": "2026-03-02T08:41:55.929969",
+    "stats": {
+      "original_records": 22629,
+      "duplicates_removed": 0,
+      "auto_corrections": 233,
+      "spell_corrections": 12742,
+      "date_issues": 11033,
+      "placeholder_records": 11033,
+      "final_records": 22629,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/583d019a/583d019a_CLEANED_20260302_065322.xlsx",
+      "merged": "/app/outputs/583d019a/583d019a_MERGED_20260302_065322.xlsx",
+      "review": "/app/outputs/583d019a/583d019a_REVIEW_20260302_065322.xlsx",
+      "report": "/app/outputs/583d019a/583d019a_REPORT_20260302_065322.xlsx",
+      "backup": "/app/outputs/583d019a/backup/583d019a_BACKUP_20260302_065322.xlsx"
+    }
+  },
+  "c80cbe0d": {
+    "job_id": "c80cbe0d",
+    "filename": "IGS Deori - Pratik.xlsx",
+    "upload_path": "/app/uploads/c80cbe0d.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-03-02T09:04:05.652122",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "finished_at": "2026-03-02T09:12:50.225245",
+    "stats": {
+      "original_records": 22629,
+      "duplicates_removed": 0,
+      "auto_corrections": 233,
+      "spell_corrections": 12742,
+      "date_issues": 11033,
+      "placeholder_records": 11033,
+      "final_records": 22629,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/c80cbe0d/c80cbe0d_CLEANED_20260302_090424.xlsx",
+      "merged": "/app/outputs/c80cbe0d/c80cbe0d_MERGED_20260302_090424.xlsx",
+      "review": "/app/outputs/c80cbe0d/c80cbe0d_REVIEW_20260302_090424.xlsx",
+      "report": "/app/outputs/c80cbe0d/c80cbe0d_REPORT_20260302_090424.xlsx",
+      "backup": "/app/outputs/c80cbe0d/backup/c80cbe0d_BACKUP_20260302_090424.xlsx"
+    }
+  },
+  "c7293974": {
+    "job_id": "c7293974",
+    "filename": "IGS Amgaon - Vedant 05 March 2026.xlsx",
+    "upload_path": "/app/uploads/c7293974.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "30682",
+    "created_at": "2026-03-05T06:53:50.758087",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "9346d441": {
+    "job_id": "9346d441",
+    "filename": "IGS Amgaon - Vedant 05 March 2026.xlsx",
+    "upload_path": "/app/uploads/9346d441.xlsx",
+    "type": "single",
+    "status": "uploaded",
+    "progress": 10,
+    "message": "File uploaded successfully",
+    "created_at": "2026-03-05T07:23:34.148767",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "a970cdfb": {
+    "job_id": "a970cdfb",
+    "filename": "IGS Amgaon - Vedant 05 March 2026.xlsx",
+    "upload_path": "/app/uploads/a970cdfb.xlsx",
+    "type": "single",
+    "status": "error",
+    "progress": 0,
+    "message": "name 'merged_indices' is not defined",
+    "created_at": "2026-03-05T09:46:11.925355",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "e9d092a4": {
+    "job_id": "e9d092a4",
+    "filename": "IGS Amgaon - Vedant 05 March 2026.xlsx",
+    "upload_path": "/app/uploads/e9d092a4.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-03-05T09:59:21.934552",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "finished_at": "2026-03-05T10:12:25.028455",
+    "stats": {
+      "original_records": 30687,
+      "duplicates_removed": 5,
+      "auto_corrections": 247,
+      "spell_corrections": 11926,
+      "date_issues": 12060,
+      "placeholder_records": 12060,
+      "final_records": 30682,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/e9d092a4/e9d092a4_CLEANED_20260305_095926.xlsx",
+      "merged": "/app/outputs/e9d092a4/e9d092a4_MERGED_20260305_095926.xlsx",
+      "review": "/app/outputs/e9d092a4/e9d092a4_REVIEW_20260305_095926.xlsx",
+      "report": "/app/outputs/e9d092a4/e9d092a4_REPORT_20260305_095926.xlsx",
+      "backup": "/app/outputs/e9d092a4/backup/e9d092a4_BACKUP_20260305_095926.xlsx"
+    }
+  },
+  "c4fcb8e3": {
+    "job_id": "c4fcb8e3",
+    "filename": "IGS Amgaon - Vedant 05 March 2026.xlsx",
+    "upload_path": "/app/uploads/c4fcb8e3.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-03-05T11:39:00.734653",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "finished_at": "2026-03-05T11:51:03.464985",
+    "stats": {
+      "original_records": 30687,
+      "duplicates_removed": 5,
+      "auto_corrections": 247,
+      "spell_corrections": 16786,
+      "date_issues": 12060,
+      "placeholder_records": 12060,
+      "final_records": 30682,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/c4fcb8e3/c4fcb8e3_CLEANED_20260305_113905.xlsx",
+      "merged": "/app/outputs/c4fcb8e3/c4fcb8e3_MERGED_20260305_113905.xlsx",
+      "review": "/app/outputs/c4fcb8e3/c4fcb8e3_REVIEW_20260305_113905.xlsx",
+      "report": "/app/outputs/c4fcb8e3/c4fcb8e3_REPORT_20260305_113905.xlsx",
+      "backup": "/app/outputs/c4fcb8e3/backup/c4fcb8e3_BACKUP_20260305_113905.xlsx"
+    }
+  },
+  "8ac11605": {
+    "job_id": "8ac11605",
+    "filename": "WOTR-Loha Vedant 06 March 2026.xlsx",
+    "upload_path": "/app/uploads/8ac11605.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-03-06T06:43:49.318682",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "finished_at": "2026-03-06T06:52:12.245789",
+    "stats": {
+      "original_records": 21913,
+      "duplicates_removed": 0,
+      "auto_corrections": 476,
+      "spell_corrections": 6933,
+      "date_issues": 4272,
+      "placeholder_records": 4272,
+      "final_records": 21913,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/8ac11605/8ac11605_CLEANED_20260306_064352.xlsx",
+      "merged": "/app/outputs/8ac11605/8ac11605_MERGED_20260306_064352.xlsx",
+      "review": "/app/outputs/8ac11605/8ac11605_REVIEW_20260306_064352.xlsx",
+      "report": "/app/outputs/8ac11605/8ac11605_REPORT_20260306_064352.xlsx",
+      "backup": "/app/outputs/8ac11605/backup/8ac11605_BACKUP_20260306_064352.xlsx"
+    }
+  },
+  "2ef60819": {
+    "job_id": "2ef60819",
+    "filename": "IGS-Sadak Arjuni Pratik 09 March 2026_drive.xlsx",
+    "upload_path": "/app/uploads/2ef60819.xlsx",
+    "type": "single",
+    "status": "uploaded",
+    "progress": 10,
+    "message": "File uploaded successfully",
+    "created_at": "2026-03-10T11:02:32.100003",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "b2283ad7": {
+    "job_id": "b2283ad7",
+    "filename": "IGS-Sadak Arjuni Pratik 09 March 2026_drive.xlsx",
+    "upload_path": "/app/uploads/b2283ad7.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-03-10T18:02:08.381847",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "finished_at": "2026-03-10T18:10:16.923060",
+    "stats": {
+      "original_records": 20377,
+      "duplicates_removed": 0,
+      "auto_corrections": 134,
+      "spell_corrections": 10491,
+      "date_issues": 6703,
+      "placeholder_records": 6703,
+      "final_records": 20377,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/b2283ad7/b2283ad7_CLEANED_20260310_180212.xlsx",
+      "merged": "/app/outputs/b2283ad7/b2283ad7_MERGED_20260310_180212.xlsx",
+      "review": "/app/outputs/b2283ad7/b2283ad7_REVIEW_20260310_180212.xlsx",
+      "report": "/app/outputs/b2283ad7/b2283ad7_REPORT_20260310_180212.xlsx",
+      "backup": "/app/outputs/b2283ad7/backup/b2283ad7_BACKUP_20260310_180212.xlsx"
+    }
+  },
+  "c9bd9c76": {
+    "job_id": "c9bd9c76",
+    "filename": "WOTR-Loha Vedant 16 March 2026.xlsx",
+    "upload_path": "/app/uploads/c9bd9c76.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-03-17T05:36:12.309828",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "finished_at": "2026-03-17T05:50:47.283756",
+    "stats": {
+      "original_records": 21913,
+      "duplicates_removed": 0,
+      "auto_corrections": 361,
+      "spell_corrections": 6940,
+      "date_issues": 4272,
+      "placeholder_records": 4272,
+      "final_records": 21913,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/c9bd9c76/c9bd9c76_CLEANED_20260317_053615.xlsx",
+      "merged": "/app/outputs/c9bd9c76/c9bd9c76_MERGED_20260317_053615.xlsx",
+      "review": "/app/outputs/c9bd9c76/c9bd9c76_REVIEW_20260317_053615.xlsx",
+      "report": "/app/outputs/c9bd9c76/c9bd9c76_REPORT_20260317_053615.xlsx",
+      "backup": "/app/outputs/c9bd9c76/backup/c9bd9c76_BACKUP_20260317_053615.xlsx"
+    }
+  },
+  "ed582a6b": {
+    "job_id": "ed582a6b",
+    "filename": "WOTR-Loha Vedant 17 March 2026.xlsx",
+    "upload_path": "/app/uploads/ed582a6b.xlsx",
+    "type": "single",
+    "status": "uploaded",
+    "progress": 10,
+    "message": "File uploaded successfully",
+    "created_at": "2026-03-18T09:20:53.127078",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "1a5635b9": {
+    "job_id": "1a5635b9",
+    "filename": "farmer_name_column_N.xlsx",
+    "upload_path": "/app/uploads/1a5635b9.xlsx",
+    "type": "single",
+    "status": "uploaded",
+    "progress": 10,
+    "message": "File uploaded successfully",
+    "created_at": "2026-03-18T10:54:40.578946",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "b5f72169": {
+    "job_id": "b5f72169",
+    "filename": "WOTR-Loha Vedant 19 March 2026.xlsx",
+    "upload_path": "/app/uploads/b5f72169.xlsx",
+    "type": "single",
+    "status": "uploaded",
+    "progress": 10,
+    "message": "File uploaded successfully",
+    "created_at": "2026-03-20T06:42:51.985104",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "f7a48290": {
+    "job_id": "f7a48290",
+    "filename": "IGS Amgaon - Vedant.xlsx",
+    "upload_path": "/app/uploads/f7a48290.xlsx",
+    "type": "single",
+    "status": "uploaded",
+    "progress": 10,
+    "message": "File uploaded successfully",
+    "created_at": "2026-03-27T05:05:02.861672",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "89f29ec2": {
+    "job_id": "89f29ec2",
+    "filename": "IGS Amgaon - Vedant.xlsx",
+    "upload_path": "/app/uploads/89f29ec2.xlsx",
+    "type": "single",
+    "status": "uploaded",
+    "progress": 10,
+    "message": "File uploaded successfully",
+    "created_at": "2026-03-27T12:15:48.622899",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ]
+  },
+  "0e043627": {
+    "job_id": "0e043627",
+    "filename": "IGS-Deori-27Feb26.xlsx",
+    "upload_path": "/app/uploads/0e043627.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-04-10T07:36:51.132795",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "system_used": "production",
+    "finished_at": "2026-04-10T07:40:49.282210",
+    "stats": {
+      "original_records": 22629,
+      "duplicates_removed": 12586,
+      "auto_corrections": 60,
+      "spell_corrections": 5701,
+      "date_issues": 11033,
+      "placeholder_records": 0,
+      "final_records": 10043,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/0e043627/0e043627_CLEANED_20260410_073801.xlsx",
+      "merged": "/app/outputs/0e043627/0e043627_MERGED_20260410_073801.xlsx",
+      "review": "/app/outputs/0e043627/0e043627_REVIEW_20260410_073801.xlsx",
+      "report": "/app/outputs/0e043627/0e043627_REPORT_20260410_073801.xlsx",
+      "backup": "/app/outputs/0e043627/backup/0e043627_BACKUP_20260410_073801.xlsx"
+    }
+  },
+  "f02468d3": {
+    "job_id": "f02468d3",
+    "filename": "IGS-Deori-27Feb26.xlsx",
+    "upload_path": "/app/uploads/f02468d3.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Migration complete",
+    "created_at": "2026-04-10T07:52:26.728904",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "system_used": "production",
+    "finished_at": "2026-04-10T07:56:02.835484",
+    "stats": {
+      "original_records": 22629,
+      "duplicates_removed": 12586,
+      "auto_corrections": 60,
+      "spell_corrections": 5701,
+      "date_issues": 11033,
+      "placeholder_records": 0,
+      "final_records": 10043,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/f02468d3/f02468d3_CLEANED_20260410_075312.xlsx",
+      "merged": "/app/outputs/f02468d3/f02468d3_MERGED_20260410_075312.xlsx",
+      "review": "/app/outputs/f02468d3/f02468d3_REVIEW_20260410_075312.xlsx",
+      "report": "/app/outputs/f02468d3/f02468d3_REPORT_20260410_075312.xlsx",
+      "backup": "/app/outputs/f02468d3/backup/f02468d3_BACKUP_20260410_075312.xlsx"
+    }
+  },
+  "6632c735": {
+    "job_id": "6632c735",
+    "filename": "26th_Apr_LOHA.xlsx",
+    "upload_path": "/app/uploads/6632c735.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-04-29T10:05:48.681330",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "system_used": "production",
+    "finished_at": "2026-04-29T10:11:25.479405",
+    "stats": {
+      "original_records": 21913,
+      "duplicates_removed": 7271,
+      "auto_corrections": 273,
+      "spell_corrections": 4785,
+      "date_issues": 4272,
+      "placeholder_records": 0,
+      "final_records": 14642,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/6632c735/6632c735_CLEANED_20260429_100558.xlsx",
+      "merged": "/app/outputs/6632c735/6632c735_MERGED_20260429_100558.xlsx",
+      "review": "/app/outputs/6632c735/6632c735_REVIEW_20260429_100558.xlsx",
+      "report": "/app/outputs/6632c735/6632c735_REPORT_20260429_100558.xlsx",
+      "backup": "/app/outputs/6632c735/backup/6632c735_BACKUP_20260429_100558.xlsx"
+    }
+  },
+  "eb2815c8": {
+    "job_id": "eb2815c8",
+    "filename": "BRLF_07FEB.xlsx",
+    "upload_path": "/app/uploads/eb2815c8.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-04-29T10:14:09.498662",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "system_used": "production",
+    "finished_at": "2026-04-29T10:51:29.156220",
+    "stats": {
+      "original_records": 13679,
+      "duplicates_removed": 7032,
+      "auto_corrections": 105,
+      "spell_corrections": 2808,
+      "date_issues": 3960,
+      "placeholder_records": 0,
+      "final_records": 6647,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/eb2815c8/eb2815c8_CLEANED_20260429_104933.xlsx",
+      "merged": "/app/outputs/eb2815c8/eb2815c8_MERGED_20260429_104933.xlsx",
+      "review": "/app/outputs/eb2815c8/eb2815c8_REVIEW_20260429_104933.xlsx",
+      "report": "/app/outputs/eb2815c8/eb2815c8_REPORT_20260429_104933.xlsx",
+      "backup": "/app/outputs/eb2815c8/backup/eb2815c8_BACKUP_20260429_104933.xlsx"
+    }
+  },
+  "7fe50301": {
+    "job_id": "7fe50301",
+    "filename": "26th_Apr_LOHA.xlsx",
+    "upload_path": "/app/uploads/7fe50301.xlsx",
+    "type": "single",
+    "status": "processing",
+    "progress": 50,
+    "message": "Running analysis [GLOBAL]\u2026",
+    "created_at": "2026-04-29T17:04:12.430734",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "system_used": "production"
+  },
+  "e23a8c0a": {
+    "job_id": "e23a8c0a",
+    "filename": "26th_Apr_LOHA.xlsx",
+    "upload_path": "/app/uploads/e23a8c0a.xlsx",
+    "type": "single",
+    "status": "complete",
+    "progress": 100,
+    "message": "Complete!",
+    "created_at": "2026-04-30T11:38:14.875848",
+    "schema_errors": [
+      {
+        "type": "INCOMPLETE_SCHEMA",
+        "severity": "HIGH",
+        "field": "",
+        "message": "Critical BRLF sections missing: ['baseline', 'geo']. 'baseline' and 'geo' are required."
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "household_id",
+        "message": "Required BRLF field 'household_id' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "family_head_name",
+        "message": "Required BRLF field 'family_head_name' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "social_category",
+        "message": "Required BRLF field 'social_category' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "state_code",
+        "message": "Required BRLF field 'state_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "district_code",
+        "message": "Required BRLF field 'district_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "block_code",
+        "message": "Required BRLF field 'block_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "gp_code",
+        "message": "Required BRLF field 'gp_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "village_code",
+        "message": "Required BRLF field 'village_code' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "latitude",
+        "message": "Required BRLF field 'latitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "longitude",
+        "message": "Required BRLF field 'longitude' is missing from the data"
+      },
+      {
+        "type": "MISSING_REQUIRED_FIELD",
+        "severity": "CRITICAL",
+        "field": "shg_member",
+        "message": "Required BRLF field 'shg_member' is missing from the data"
+      }
+    ],
+    "schema_warnings": [
+      {
+        "type": "LGD_VALIDATION_SKIPPED",
+        "severity": "INFO",
+        "field": "",
+        "message": "No LGD code fields found \u2014 eGramSwaraj compliance check skipped"
+      }
+    ],
+    "system_used": "production",
+    "finished_at": "2026-04-30T11:47:03.241502",
+    "stats": {
+      "original_records": 21913,
+      "duplicates_removed": 7271,
+      "auto_corrections": 273,
+      "spell_corrections": 4785,
+      "date_issues": 4272,
+      "placeholder_records": 0,
+      "final_records": 14642,
+      "validation_warnings": []
+    },
+    "output_paths": {
+      "cleaned": "/app/outputs/e23a8c0a/e23a8c0a_CLEANED_20260430_114212.xlsx",
+      "merged": "/app/outputs/e23a8c0a/e23a8c0a_MERGED_20260430_114212.xlsx",
+      "review": "/app/outputs/e23a8c0a/e23a8c0a_REVIEW_20260430_114212.xlsx",
+      "report": "/app/outputs/e23a8c0a/e23a8c0a_REPORT_20260430_114212.xlsx",
+      "backup": "/app/outputs/e23a8c0a/backup/e23a8c0a_BACKUP_20260430_114212.xlsx"
+    }
+  }
+}

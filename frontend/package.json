@@ -1,0 +1,46 @@
+{
+  "name": "brlf-dms-data-migration-system",
+  "version": "4.1.0",
+  "description": "BRLF Govt. Compliance Data Migration System - Cleaning, Modeling, and Upload Platform",
+  "private": true,
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "audit:fix": "npm audit fix"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "keywords": [
+    "data-migration",
+    "data-cleaning",
+    "compliance",
+    "nrm",
+    "government",
+    "enterprise",
+    "sanket-portal"
+  ],
+  "author": "BRLF DMS Enterprise Team",
+  "license": "UNLICENSED"
+}
