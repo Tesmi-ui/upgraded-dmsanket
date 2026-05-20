@@ -1,3 +1,16 @@
+---
+title: Dmsanket
+emoji: 🚀
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+app_port: 7860
+---
+
+# Your actual README content can go down here!
+
+
 # BRLF-SANKET GOVT. COMPLIANCE DATA MIGRATION SYSTEM
 
 **Enterprise-grade web-based data migration, cleaning, and compliance validation for Sanket Portal**
