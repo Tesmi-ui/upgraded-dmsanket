@@ -38,19 +38,19 @@ RUN mkdir -p /app/uploads /app/outputs /app/backups /app/logs \
   /app/gender_intelligence_data
 
 # Create non-root user
-RUN useradd -m -u 1001 appuser && chown -R appuser:appuser /app
+RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
 USER appuser
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
-  CMD curl -f http://localhost:8000/health || exit 1
+  CMD curl -f http://localhost:7860/health || exit 1
 
-EXPOSE 8000
+EXPOSE 7860
 
 ENV WEB_CONCURRENCY=2
 CMD ["gunicorn", "main:app", \
   "--workers", "2", \
   "--worker-class", "uvicorn.workers.UvicornWorker", \
-  "--bind", "0.0.0.0:8000", \
+  "--bind", "0.0.0.0:7860", \
   "--timeout", "120", \
   "--access-logfile", "-", \
   "--error-logfile", "-"]
