@@ -14,6 +14,7 @@ app_port: 7860
 ---
 ## How to use APPLICATION: GO TO https://dmsanket.netlify.app/ or search on Google: https://dmsanket.netlify.app/
                           Three steps are given:  Data Ingestion --> Model& Map --> Migrate
+                          <img src="./assets/photos" alt="App Dashboard Screenshot" width="500"/>
                           Ingestion: upload files and processing --> Next to Modeling and mapping with selective advisory, all according to user inputs --> Migrate                          
 
                            
