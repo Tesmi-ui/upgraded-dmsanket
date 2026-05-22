@@ -19,16 +19,16 @@ app_port: 7860
                           
                           Migrate                          
                          
-                         
-<p align="center">
-<img src="./assets/photos/dasshboard_page_first.png" alt="Dashboard showing the DMS Data Migration System with a left navigation sidebar a top status bar and compliance status cards in a dark workspace" width="50%"/>
-<img src="./assets/photos/compliece_data_field_check_error_warning_shows.png" alt="Validation panel highlighting missing BRLF fields baseline geo household_id family_head_name social_category state_code district_code block_code gp_code village_code latitude with red error icons in a dark dashboard" width="50%"/>
-<img src="./assets/photos/data_check.png" alt="Data validation results screen displaying a summary of validation checks table rows and status indicators in a dark analytics dashboard" width="50%"/>
-<img src="./assets/photos/transform_check_page.png" alt="Transformation review page displaying field mapping controls target fields and quality status indicators in a dark migration workflow interface" width="50%"/>
-<img src="./assets/photos/Modeling_page.png" alt="Modeling page displaying data schema mapping panels target field selection and workflow cards in a dark interface" width="50%"/>
-<img src="./assets/photos/Migration_page.png" alt="Migration interface displaying final export options progress indicators and completion workflow steps for cleaned data" width="50%"/>
-<img src="./assets/photos/API_Docs.png" alt="API documentation page showing endpoint list sample request details and a dark documentation layout" width="50%"/>
-</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+  <div><img src="./assets/photos/dasshboard_page_first.png" alt="Dashboard showing the DMS Data Migration System with a left navigation sidebar a top status bar and compliance status cards in a dark workspace" width="100%"/></div>
+  <div><img src="./assets/photos/compliece_data_field_check_error_warning_shows.png" alt="Validation panel highlighting missing BRLF fields baseline geo household_id family_head_name social_category state_code district_code block_code gp_code village_code latitude with red error icons in a dark dashboard" width="100%"/></div>
+  <div><img src="./assets/photos/data_check.png" alt="Data validation results screen displaying a summary of validation checks table rows and status indicators in a dark analytics dashboard" width="100%"/></div>
+  <div><img src="./assets/photos/transform_check_page.png" alt="Transformation review page displaying field mapping controls target fields and quality status indicators in a dark migration workflow interface" width="100%"/></div>
+  <div><img src="./assets/photos/Modeling_page.png" alt="Modeling page displaying data schema mapping panels target field selection and workflow cards in a dark interface" width="100%"/></div>
+  <div><img src="./assets/photos/Migration_page.png" alt="Migration interface displaying final export options progress indicators and completion workflow steps for cleaned data" width="100%"/></div>
+  <div><img src="./assets/photos/API_Docs.png" alt="API documentation page showing endpoint list sample request details and a dark documentation layout" width="100%"/></div>
+</div>
 
 ## ⚡ QUICK START local Environment (5 Minutes)
 
