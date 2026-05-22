@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useMigration } from '../../contexts/MigrationContext';
 
 export default function DataReviewTable() {
-    const { api, jobId, setStatus } = useMigration();
+    const { api, jobId } = useMigration();
     const [changes, setChanges] = useState([]);
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);

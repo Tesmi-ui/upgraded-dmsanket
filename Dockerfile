@@ -13,24 +13,24 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /app
 
 # Install dependencies
-COPY dockerfiles/requirements.txt requirements.txt
+COPY backend/dockerfiles/requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy single files
-COPY main.py .
-COPY bulk_processor.py .
+COPY backend/main.py .
+COPY backend/bulk_processor.py .
 
 # Copy directories (destination must end with /)
-COPY api/ api/
-COPY models/ models/
-COPY core/ core/
-COPY engines/ engines/
-COPY check_intelligence/ check_intelligence/
-COPY validators/ validators/
-COPY gender_lib/ gender_lib/
-COPY gender_intelligence/ gender_intelligence/
-COPY scripts/ scripts/
-COPY services/ services/
+COPY backend/api/ api/
+COPY backend/models/ models/
+COPY backend/core/ core/
+COPY backend/engines/ engines/
+COPY backend/check_intelligence/ check_intelligence/
+COPY backend/validators/ validators/
+COPY backend/gender_lib/ gender_lib/
+COPY backend/gender_intelligence/ gender_intelligence/
+COPY backend/scripts/ scripts/
+COPY backend/services/ services/
 
 # Create directories
 RUN mkdir -p /app/uploads /app/outputs /app/backups /app/logs \

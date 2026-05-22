@@ -1,10 +1,23 @@
+---
+title: Dmsanket
+emoji: 🚀
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+app_port: 7860
+---
 # BRLF-SANKET GOVT. COMPLIANCE DATA MIGRATION SYSTEM
 
 **Enterprise-grade web-based data migration, cleaning, and compliance validation for Sanket Portal**
 
 ---
+## How to use APPLICATION: GO TO https://dmsanket.netlify.app/ or search on Google: https://dmsanket.netlify.app/
+                          Three steps are given:  Data Ingestion --> Model& Map --> Migrate
+                          Ingestion: upload files and processing --> Next to Modeling and mapping with selective advisory, all according to user inputs --> Migrate                          
 
-## ⚡ QUICK START (5 Minutes)
+                           
+## ⚡ QUICK START local Environment (5 Minutes)
 
 ```bash
 # 1. Make sure Docker is running (whale icon visible)
@@ -18,7 +31,7 @@ docker compose up -d
 # 4. Open browser
 http://localhost:3000
 
-# ✅ Done! System ready to use
+# ✅ Done! The system is ready to use
 ```
 
 ---
@@ -128,9 +141,9 @@ docker compose --profile dev up
 
 ## 🌐 ACCESS
 
-- **Web Interface:** http://localhost:3000
-- **API:** http://localhost:8000
-- **API Docs:** http://localhost:8000/docs
+- **Web Interface:** https://dmsanket.netlify.app
+- **API:** 
+- **API Docs:** https://tesminal-dmsanket.hf.space/docs
 
 ---
 
@@ -169,8 +182,8 @@ Tested with real KVGPS data:
 
 ## 🆘 TROUBLESHOOTING
 
-**Problem:** Website not loading
-**Fix:** Wait 30 seconds after starting, then refresh browser
+**Problem:** Website not loading, server error, do process again 
+**Fix:** Wait 30 seconds after starting, then refresh the browser
 
 **Problem:** Docker not found
 **Fix:** Install Docker Desktop from https://www.docker.com
